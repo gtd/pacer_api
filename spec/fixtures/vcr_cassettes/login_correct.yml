@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://qa-login.uscourts.gov/services/cso-auth
+    body:
+      encoding: UTF-8
+      string: '{"loginId":"<LOGIN>","password":"<PASSWORD>","redactFlag":"1"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 19 Oct 2021 17:13:22 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '163'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956co443;
+        path=/; Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: '{"nextGenCSO":"wFlIvajsjMsftBaPkMHnzFKaYvZ0W0FvunhGU4n1btEYFZ7TPDk0Zx864WfxAqZw5dzP2sa6JmVnpc5PJKvbnkn9LixLkWAXV6ouj5Ubi8HzN3RPsp6BRNS1PvSkluB1","loginResult":"0"}'
+  recorded_at: Tue, 19 Oct 2021 17:13:22 GMT
+recorded_with: VCR 6.0.0

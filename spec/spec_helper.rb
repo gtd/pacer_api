@@ -94,3 +94,7 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 end
+
+Dir[File.expand_path("support/**/*.rb", __dir__)].each do |path|
+  require path
+end
