@@ -1,13 +1,175 @@
+require:
+  - rubocop-rspec
+
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.0
 
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
+# The main app is still on 2.4, which nothing supports, so we can't enforce
+# consistency here.
+Gemspec/RequiredRubyVersion:
+  Enabled: false
 
-Style/StringLiteralsInInterpolation:
-  Enabled: true
-  EnforcedStyle: double_quotes
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
 
 Layout/LineLength:
-  Max: 120
+  Exclude:
+    - config/**/*
+    - lib/tasks/*
+    - script/rails
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+# Don't see a need to add the same 3 level nested prefix to every spec path.
+RSpec/FilePath:
+  Enabled: false
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/AsciiComments:
+  Enabled: false
+
+# Use Weirich style
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  Exclude:
+    - 'spec/factories/**/*'
+  IgnoredMethods:
+    - filter_sensitive_data
+    - it
+
+Style/Documentation:
+  Enabled: false
+
+# This rule insists on x.positive? over x > 0. This is nonsense.
+Style/NumericPredicate:
+  Enabled: false
+
+# Just a preference to use %w[] over %w()
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '[]'
+    '%w': '[]'
+    '%W': '[]'
+    '%': '{}'
+
+Style/RegexpLiteral:
+  Enabled: false
+
+# This is useful in specs where you want to check that an action has no side-
+# effects when an exception is raised.
+Style/RescueModifier:
+  Exclude:
+    - 'spec/**/*'
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# You can't use attr_reader to define a foo? method from @foo.
+Style/TrivialAccessors:
+  AllowPredicates: true
+  IgnoreClassMethods: true
+
+# All other cops enabled by default
+Gemspec/DateAssignment:
+  Enabled: true
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+Lint/AmbiguousAssignment:
+  Enabled: true
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: true
+Lint/AmbiguousRange:
+  Enabled: true
+Lint/DeprecatedConstants:
+  Enabled: true
+Lint/DuplicateBranch:
+  Enabled: true
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+Lint/EmptyBlock:
+  Enabled: true
+Lint/EmptyClass:
+  Enabled: true
+Lint/EmptyInPattern:
+  Enabled: true
+Lint/IncompatibleIoSelectWithFiberScheduler:
+  Enabled: true
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: true
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+Lint/NumberedParameterAssignment:
+  Enabled: true
+Lint/OrAssignmentToConstant:
+  Enabled: true
+Lint/RedundantDirGlobSort:
+  Enabled: true
+Lint/RequireRelativeSelfPath:
+  Enabled: true
+Lint/SymbolConversion:
+  Enabled: true
+Lint/ToEnumArguments:
+  Enabled: true
+Lint/TripleQuotes:
+  Enabled: true
+Lint/UnexpectedBlockArity:
+  Enabled: true
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+Security/IoMethods:
+  Enabled: true
+Style/ArgumentsForwarding:
+  Enabled: true
+Style/CollectionCompact:
+  Enabled: true
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+Style/EndlessMethod:
+  Enabled: true
+Style/HashConversion:
+  Enabled: true
+Style/HashExcept:
+  Enabled: true
+Style/IfWithBooleanLiteralBranches:
+  Enabled: true
+Style/InPatternThen:
+  Enabled: true
+Style/MultilineInPatternThen:
+  Enabled: true
+Style/NegatedIfElseCondition:
+  Enabled: true
+Style/NilLambda:
+  Enabled: true
+Style/NumberedParameters:
+  Enabled: true
+Style/NumberedParametersLimit:
+  Enabled: true
+Style/QuotedSymbols:
+  Enabled: true
+Style/RedundantArgument:
+  Enabled: true
+Style/RedundantSelfAssignmentBranch:
+  Enabled: true
+Style/SelectByRegexp:
+  Enabled: true
+Style/StringChars:
+  Enabled: true
+Style/SwapValues:
+  Enabled: true
+RSpec/ExcessiveDocstringSpacing:
+  Enabled: true
+RSpec/IdenticalEqualityAssertion:
+  Enabled: true
+RSpec/SubjectDeclaration:
+  Enabled: true
+RSpec/Rails/AvoidSetupHook:
+  Enabled: true
