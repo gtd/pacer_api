@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "json"
 require "faraday"
+require "json"
 
 module Pacer
   module Api
