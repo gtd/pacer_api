@@ -9,7 +9,7 @@ module Pacer
       DOMAINS = {
         production: "pacer.login.uscourts.gov",
         qa: "qa-login.uscourts.gov"
-      }
+      }.freeze
       URL = "https://%s/services/cso-auth"
 
       def initialize(
@@ -38,9 +38,9 @@ module Pacer
 
       def build_request_body
         params = {
-          "loginId": @login_id,
-          "password": @password,
-          "redactFlag": "1"
+          "loginId" => @login_id,
+          "password" => @password,
+          "redactFlag" => "1"
         }
         params["clientCode"] = @client_code if @client_code
         JSON.generate(params)
