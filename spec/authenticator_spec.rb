@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "pacer/api/authenticator"
 
 RSpec.describe Pacer::Api::Authenticator do
