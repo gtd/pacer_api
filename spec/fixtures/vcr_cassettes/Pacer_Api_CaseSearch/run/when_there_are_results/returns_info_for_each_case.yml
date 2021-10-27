@@ -1,0 +1,167 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://qa-login.uscourts.gov/services/cso-auth
+    body:
+      encoding: UTF-8
+      string: '{"loginId":"<LOGIN>","password":"<PASSWORD>","redactFlag":"1"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Fri, 29 Oct 2021 14:14:44 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '163'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956bo443;
+        path=/; Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: '{"nextGenCSO":"d12OdLJSHY0iIl1XY5RmBsFkOnxy0uBW8XXfvAMJ2W7Ts7s5CIpbDFINtmL54VH5plLFDwBqSfLpRrVfKDwy6qV86oSyN53GxGpgqrG4ai6s2jfVnHiMDCLmfwIeULfE","loginResult":"0"}'
+  recorded_at: Fri, 29 Oct 2021 14:14:44 GMT
+- request:
+    method: post
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/find?page=1
+    body:
+      encoding: UTF-8
+      string: '{"caseTitle":"THE"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - d12OdLJSHY0iIl1XY5RmBsFkOnxy0uBW8XXfvAMJ2W7Ts7s5CIpbDFINtmL54VH5plLFDwBqSfLpRrVfKDwy6qV86oSyN53GxGpgqrG4ai6s2jfVnHiMDCLmfwIeULfE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Fri, 29 Oct 2021 14:14:44 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Next-Gen-Cso:
+      - d12OdLJSHY0iIl1XY5RmBsFkOnxy0uBW8XXfvAMJ2W7Ts7s5CIpbDFINtmL54VH5plLFDwBqSfLpRrVfKDwy6qV86oSyN53GxGpgqrG4ai6s2jfVnHiMDCLmfwIeULfE
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":{"transactionDate":"2021-10-29T09:14:45.104-0500","billablePages":1,"loginId":"<LOGIN>","clientCode":"","firmId":"","search":"All
+        Courts; Case Title THE; Page: 2","description":"All Court Types Case Search","csoId":4697705,"reportId":"a880827a-5d3f-4659-89a8-255aae8f723a","searchFee":".10"},"pageInfo":{"number":1,"size":54,"totalPages":51,"totalElements":2754,"numberOfElements":54,"first":false,"last":false},"content":[{"courtId":"azttca","caseId":44236,"caseYear":2003,"caseNumber":6062,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Committee v. City of Northfield","dateFiled":"2003-09-23","dateTermed":"2004-05-03","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"2004-05-03","caseLink":"https://ecf.tc1a.aztc.uscourts.gov/cmecf/servlet/TransportRoom?servlet=CaseSummary.jsp?caseNum=44236&dktType=dktPublic&incOrigDkt=Y&incDktEntries=Y","caseNumberFull":"0:2003bap06062"},{"courtId":"aztxca","caseId":44236,"caseYear":2003,"caseNumber":6062,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Committee v. City of Northfield","dateFiled":"2003-09-23","dateTermed":"2004-05-03","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"2004-05-03","caseNumberFull":"0:2003bap06062"},{"courtId":"cm2ca","caseId":44236,"caseYear":2003,"caseNumber":6062,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Committee v. City of Northfield","dateFiled":"2003-09-23","dateTermed":"2004-05-03","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"2004-05-03","caseNumberFull":"0:2003bap06062"},{"courtId":"azttbk","caseId":20769,"caseYear":2010,"caseNumber":186,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Co and The Candy","dateFiled":"2010-05-03","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20769","caseNumberFull":"0:2010ap00186"},{"courtId":"tc1bk","caseId":20769,"caseYear":2010,"caseNumber":186,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Co and The Candy","dateFiled":"2010-05-03","jurisdictionType":"Bankruptcy","caseNumberFull":"0:2010ap00186"},{"courtId":"azttbk","caseId":19766,"caseYear":2010,"caseNumber":248,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Cookie Company","dateFiled":"2010-03-22","bankruptcyChapter":"11","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19766","caseNumberFull":"1:2010bk00248"},{"courtId":"azttbk","caseId":19770,"caseYear":2010,"caseNumber":367,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Cookie Company","dateFiled":"2010-03-22","bankruptcyChapter":"15","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19770","caseNumberFull":"0:2010bk00367"},{"courtId":"tc1bk","caseId":19766,"caseYear":2010,"caseNumber":248,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Cookie Company","dateFiled":"2010-03-22","bankruptcyChapter":"11","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseNumberFull":"1:2010bk00248"},{"courtId":"tc1bk","caseId":19770,"caseYear":2010,"caseNumber":367,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Cookie Company","dateFiled":"2010-03-22","bankruptcyChapter":"15","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseNumberFull":"0:2010bk00367"},{"courtId":"azttbk","caseId":20771,"caseYear":2010,"caseNumber":188,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Company and Perry","dateFiled":"2010-05-03","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20771","caseNumberFull":"0:2010ap00188"},{"courtId":"tc1bk","caseId":20771,"caseYear":2010,"caseNumber":188,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Company and Perry","dateFiled":"2010-05-03","jurisdictionType":"Bankruptcy","caseNumberFull":"0:2010ap00188"},{"courtId":"azttbk","caseId":20770,"caseYear":2010,"caseNumber":187,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Company and The Candy","dateFiled":"2010-05-03","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20770","caseNumberFull":"0:2010ap00187"},{"courtId":"tc1bk","caseId":20770,"caseYear":2010,"caseNumber":187,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Company and The Candy","dateFiled":"2010-05-03","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseNumberFull":"0:2010ap00187"},{"courtId":"azttbk","caseId":19836,"caseYear":2010,"caseNumber":141,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Store and Johnson","dateFiled":"2010-03-22","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19836","caseNumberFull":"0:2010ap00141"},{"courtId":"tc1bk","caseId":19836,"caseYear":2010,"caseNumber":141,"caseOffice":"0","caseType":"ap","caseTitle":"The
+        Cookie Store and Johnson","dateFiled":"2010-03-22","jurisdictionType":"Bankruptcy","caseNumberFull":"0:2010ap00141"},{"courtId":"azt5ca","caseId":55579,"caseYear":2007,"caseNumber":1840,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Cornelia I. Crowell GST Tr v. Possis Medical, Inc., et al","dateFiled":"2007-04-11","dateTermed":"2008-03-21","natureOfSuit":"3850","jurisdictionType":"Appellate","effectiveDateClosed":"2008-03-21","caseNumberFull":"0:2007cv01840"},{"courtId":"aztica","caseId":55579,"caseYear":2007,"caseNumber":1840,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Cornelia I. Crowell GST Tr v. Possis Medical, Inc., et al","dateFiled":"2007-04-11","dateTermed":"2008-03-21","natureOfSuit":"3850","jurisdictionType":"Appellate","effectiveDateClosed":"2008-03-21","caseNumberFull":"0:2007cv01840"},{"courtId":"azttca","caseId":55579,"caseYear":2007,"caseNumber":1840,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Cornelia I. Crowell GST Tr v. Possis Medical, Inc., et al","dateFiled":"2007-04-11","dateTermed":"2008-03-21","natureOfSuit":"3850","jurisdictionType":"Appellate","effectiveDateClosed":"2008-03-21","caseLink":"https://ecf.tc1a.aztc.uscourts.gov/cmecf/servlet/TransportRoom?servlet=CaseSummary.jsp?caseNum=55579&dktType=dktPublic&incOrigDkt=Y&incDktEntries=Y","caseNumberFull":"0:2007cv01840"},{"courtId":"aztxca","caseId":55579,"caseYear":2007,"caseNumber":1840,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Cornelia I. Crowell GST Tr v. Possis Medical, Inc., et al","dateFiled":"2007-04-11","dateTermed":"2008-03-21","natureOfSuit":"3850","jurisdictionType":"Appellate","effectiveDateClosed":"2008-03-21","caseNumberFull":"0:2007cv01840"},{"courtId":"cm2ca","caseId":55579,"caseYear":2007,"caseNumber":1840,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Cornelia I. Crowell GST Tr v. Possis Medical, Inc., et al","dateFiled":"2007-04-11","dateTermed":"2008-03-21","natureOfSuit":"3850","jurisdictionType":"Appellate","effectiveDateClosed":"2008-03-21","caseNumberFull":"0:2007cv01840"},{"courtId":"azttbk","caseId":19956,"caseYear":2010,"caseNumber":426,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Corporation","dateFiled":"2010-03-24","bankruptcyChapter":"7","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19956","caseNumberFull":"0:2010bk00426"},{"courtId":"tc1bk","caseId":19956,"caseYear":2010,"caseNumber":426,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Corporation","dateFiled":"2010-03-24","bankruptcyChapter":"7","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseNumberFull":"0:2010bk00426"},{"courtId":"azttbk","caseId":2763,"caseYear":1967,"caseNumber":60008,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Cutting Edge","dateFiled":"2002-06-11","dateTermed":"2004-02-09","dateDismissed":"2002-06-13","bankruptcyChapter":"7","dispositionMethod":"Dismissed
+        for Other Reason","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-02-09","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?2763","caseNumberFull":"1:1967bk60008"},{"courtId":"azttbk","caseId":6540,"caseYear":2004,"caseNumber":9195,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Cutting Edge","dateFiled":"2002-06-11","dateTermed":"2004-02-09","dateDismissed":"2002-06-13","bankruptcyChapter":"7","dispositionMethod":"Dismissed
+        for Other Reason","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-02-09","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?6540","caseNumberFull":"1:2004bk09195"},{"courtId":"tc1bk","caseId":2763,"caseYear":1967,"caseNumber":60008,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Cutting Edge","dateFiled":"2002-06-11","dateTermed":"2004-02-09","dateDismissed":"2002-06-13","bankruptcyChapter":"7","dispositionMethod":"Dismissed
+        for Other Reason","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-02-09","caseNumberFull":"1:1967bk60008"},{"courtId":"tc1bk","caseId":6540,"caseYear":2004,"caseNumber":9195,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Cutting Edge","dateFiled":"2002-06-11","dateTermed":"2004-02-09","dateDismissed":"2002-06-13","bankruptcyChapter":"7","dispositionMethod":"Dismissed
+        for Other Reason","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-02-09","caseNumberFull":"1:2004bk09195"},{"courtId":"cm8bk","caseId":124529,"caseYear":2003,"caseNumber":120,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2003-12-15","dateTermed":"2008-01-22","dateDischarged":"2007-10-26","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2008-01-22","caseNumberFull":"0:2003bk00120"},{"courtId":"cm8bk","caseId":124539,"caseYear":2003,"caseNumber":120,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2003-12-15","dateTermed":"2008-01-18","dateDischarged":"2007-11-02","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2008-01-18","caseNumberFull":"1:2003bk00120"},{"courtId":"cm8bk","caseId":124620,"caseYear":2004,"caseNumber":4012,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2004-01-09","dateTermed":"2007-10-11","dateDischarged":"2007-10-11","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2007-10-11","caseNumberFull":"0:2004bk04012"},{"courtId":"cm8bk","caseId":124863,"caseYear":2004,"caseNumber":4019,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2004-01-21","dateTermed":"2007-10-11","dateDischarged":"2007-10-11","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2007-10-11","caseNumberFull":"0:2004bk04019"},{"courtId":"cm8bk","caseId":125008,"caseYear":2004,"caseNumber":1385,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2004-01-29","dateTermed":"2004-06-09","dateDischarged":"2004-06-09","bankruptcyChapter":"7","dispositionMethod":"Discharge
+        Granted","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-06-09","caseNumberFull":"1:2004bk01385"},{"courtId":"cmmbk","caseId":124529,"caseYear":2003,"caseNumber":120,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2003-12-15","dateTermed":"2008-01-22","dateDischarged":"2007-10-26","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2008-01-22","caseNumberFull":"0:2003bk00120"},{"courtId":"cmmbk","caseId":124539,"caseYear":2003,"caseNumber":120,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2003-12-15","dateTermed":"2008-01-18","dateDischarged":"2007-11-02","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2008-01-18","caseNumberFull":"1:2003bk00120"},{"courtId":"cmmbk","caseId":124620,"caseYear":2004,"caseNumber":4012,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2004-01-09","dateTermed":"2007-10-11","dateDischarged":"2007-10-11","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2007-10-11","caseNumberFull":"0:2004bk04012"},{"courtId":"cmmbk","caseId":124863,"caseYear":2004,"caseNumber":4019,"caseOffice":"0","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2004-01-21","dateTermed":"2007-10-11","dateDischarged":"2007-10-11","bankruptcyChapter":"7","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2007-10-11","caseNumberFull":"0:2004bk04019"},{"courtId":"cmmbk","caseId":125008,"caseYear":2004,"caseNumber":1385,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Dark One","dateFiled":"2004-01-29","dateTermed":"2004-06-09","dateDischarged":"2004-06-09","bankruptcyChapter":"7","dispositionMethod":"Discharge
+        Granted","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-06-09","caseNumberFull":"1:2004bk01385"},{"courtId":"azt5ca","caseId":27656,"caseYear":1998,"caseNumber":6014,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Delaware Lottery v. John R. Haughey","dateFiled":"1998-02-02","dateTermed":"1998-02-05","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"1998-02-05","caseNumberFull":"0:1998bap06014"},{"courtId":"aztica","caseId":27656,"caseYear":1998,"caseNumber":6014,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Delaware Lottery v. John R. Haughey","dateFiled":"1998-02-02","dateTermed":"1998-02-05","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"1998-02-05","caseNumberFull":"0:1998bap06014"},{"courtId":"azttca","caseId":27656,"caseYear":1998,"caseNumber":6014,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Delaware Lottery v. John R. Haughey","dateFiled":"1998-02-02","dateTermed":"1998-02-05","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"1998-02-05","caseLink":"https://ecf.tc1a.aztc.uscourts.gov/cmecf/servlet/TransportRoom?servlet=CaseSummary.jsp?caseNum=27656&dktType=dktPublic&incOrigDkt=Y&incDktEntries=Y","caseNumberFull":"0:1998bap06014"},{"courtId":"aztxca","caseId":27656,"caseYear":1998,"caseNumber":6014,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Delaware Lottery v. John R. Haughey","dateFiled":"1998-02-02","dateTermed":"1998-02-05","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"1998-02-05","caseNumberFull":"0:1998bap06014"},{"courtId":"cm2ca","caseId":27656,"caseYear":1998,"caseNumber":6014,"caseOffice":"0","caseType":"bap","caseTitle":"The
+        Delaware Lottery v. John R. Haughey","dateFiled":"1998-02-02","dateTermed":"1998-02-05","natureOfSuit":"3422","jurisdictionType":"Appellate","effectiveDateClosed":"1998-02-05","caseNumberFull":"0:1998bap06014"},{"courtId":"azttbk","caseId":10766,"caseYear":2006,"caseNumber":511,"caseOffice":"6","caseType":"bk","caseTitle":"THE
+        DEVIL''S DEN","dateFiled":"2006-02-09","bankruptcyChapter":"13","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?10766","caseNumberFull":"6:2006bk00511"},{"courtId":"azttbk","caseId":10809,"caseYear":2006,"caseNumber":512,"caseOffice":"6","caseType":"bk","caseTitle":"THE
+        DEVIL''S DEN","dateFiled":"2006-02-09","dateDischarged":"2012-05-04","bankruptcyChapter":"13","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?10809","caseNumberFull":"6:2006bk00512"},{"courtId":"tc1bk","caseId":10766,"caseYear":2006,"caseNumber":511,"caseOffice":"6","caseType":"bk","caseTitle":"THE
+        DEVIL''S DEN","dateFiled":"2006-02-09","bankruptcyChapter":"13","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseNumberFull":"6:2006bk00511"},{"courtId":"tc1bk","caseId":10809,"caseYear":2006,"caseNumber":512,"caseOffice":"6","caseType":"bk","caseTitle":"THE
+        DEVIL''S DEN","dateFiled":"2006-02-09","dateDischarged":"2012-05-04","bankruptcyChapter":"13","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","caseNumberFull":"6:2006bk00512"},{"courtId":"azt5ca","caseId":56336,"caseYear":2007,"caseNumber":2516,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Estate of Robert Rudolph H v. Motel 6 Operating LP","dateFiled":"2007-06-28","dateTermed":"2008-07-28","natureOfSuit":"4360","jurisdictionType":"Appellate","effectiveDateClosed":"2008-07-28","caseNumberFull":"0:2007cv02516"},{"courtId":"aztica","caseId":56336,"caseYear":2007,"caseNumber":2516,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Estate of Robert Rudolph H v. Motel 6 Operating LP","dateFiled":"2007-06-28","dateTermed":"2008-07-28","natureOfSuit":"4360","jurisdictionType":"Appellate","effectiveDateClosed":"2008-07-28","caseNumberFull":"0:2007cv02516"},{"courtId":"azttca","caseId":56336,"caseYear":2007,"caseNumber":2516,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Estate of Robert Rudolph H v. Motel 6 Operating LP","dateFiled":"2007-06-28","dateTermed":"2008-07-28","natureOfSuit":"4360","jurisdictionType":"Appellate","effectiveDateClosed":"2008-07-28","caseLink":"https://ecf.tc1a.aztc.uscourts.gov/cmecf/servlet/TransportRoom?servlet=CaseSummary.jsp?caseNum=56336&dktType=dktPublic&incOrigDkt=Y&incDktEntries=Y","caseNumberFull":"0:2007cv02516"},{"courtId":"aztxca","caseId":56336,"caseYear":2007,"caseNumber":2516,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Estate of Robert Rudolph H v. Motel 6 Operating LP","dateFiled":"2007-06-28","dateTermed":"2008-07-28","natureOfSuit":"4360","jurisdictionType":"Appellate","effectiveDateClosed":"2008-07-28","caseNumberFull":"0:2007cv02516"},{"courtId":"cm2ca","caseId":56336,"caseYear":2007,"caseNumber":2516,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Estate of Robert Rudolph H v. Motel 6 Operating LP","dateFiled":"2007-06-28","dateTermed":"2008-07-28","natureOfSuit":"4360","jurisdictionType":"Appellate","effectiveDateClosed":"2008-07-28","caseNumberFull":"0:2007cv02516"},{"courtId":"azttbk","caseId":2729,"caseYear":2001,"caseNumber":85200,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Family Farm, Inc.","dateFiled":"2001-06-11","dateTermed":"2004-02-12","bankruptcyChapter":"12","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-02-12","caseLink":"https://ecf.tc1b.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?2729","caseNumberFull":"1:2001bk85200"},{"courtId":"tc1bk","caseId":2729,"caseYear":2001,"caseNumber":85200,"caseOffice":"1","caseType":"bk","caseTitle":"The
+        Family Farm, Inc.","dateFiled":"2001-06-11","dateTermed":"2004-02-12","bankruptcyChapter":"12","dispositionMethod":"Standard
+        Discharge","jointBankruptcyFlag":"n","jurisdictionType":"Bankruptcy","effectiveDateClosed":"2004-02-12","caseNumberFull":"1:2001bk85200"},{"courtId":"azt5ca","caseId":23706,"caseYear":1997,"caseNumber":4069,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Farmers and v. St. Paul Fire and","dateFiled":"1997-11-20","dateTermed":"1998-05-11","natureOfSuit":"4110","jurisdictionType":"Appellate","effectiveDateClosed":"1998-05-11","caseNumberFull":"0:1997cv04069"},{"courtId":"aztica","caseId":23706,"caseYear":1997,"caseNumber":4069,"caseOffice":"0","caseType":"cv","caseTitle":"The
+        Farmers and v. St. Paul Fire and","dateFiled":"1997-11-20","dateTermed":"1998-05-11","natureOfSuit":"4110","jurisdictionType":"Appellate","effectiveDateClosed":"1998-05-11","caseNumberFull":"0:1997cv04069"}],"masterCase":null}'
+  recorded_at: Fri, 29 Oct 2021 14:14:45 GMT
+recorded_with: VCR 6.0.0

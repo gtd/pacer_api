@@ -29,6 +29,9 @@ Metrics/BlockLength:
 RSpec/FilePath:
   Enabled: false
 
+RSpec/ExampleLength:
+  Enabled: false
+
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
@@ -45,6 +48,10 @@ Style/BlockDelimiters:
     - it
 
 Style/Documentation:
+  Enabled: false
+
+# I don't always want to write 12_345
+Style/NumericLiterals:
   Enabled: false
 
 # This rule insists on x.positive? over x > 0. This is nonsense.

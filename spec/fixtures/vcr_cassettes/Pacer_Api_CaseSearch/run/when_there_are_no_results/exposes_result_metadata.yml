@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://qa-login.uscourts.gov/services/cso-auth
+    body:
+      encoding: UTF-8
+      string: '{"loginId":"<LOGIN>","password":"<PASSWORD>","redactFlag":"1"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Fri, 29 Oct 2021 14:14:42 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '163'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956bo443;
+        path=/; Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: '{"nextGenCSO":"khoCy5Vc1J5mc12Z05JflXFX04KMdvNEn56s29ayZn2AEZoaq7C6fCOO3aNZPtRsKC1qVBlRK8WyJOTssx4s0DLJRb88RUxhSFzMaquKlbOwnfUXR8AVGPvex1GhDTrX","loginResult":"0"}'
+  recorded_at: Fri, 29 Oct 2021 14:14:43 GMT
+- request:
+    method: post
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/find?page=1
+    body:
+      encoding: UTF-8
+      string: '{"caseTitle":"Slartibartfast"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - khoCy5Vc1J5mc12Z05JflXFX04KMdvNEn56s29ayZn2AEZoaq7C6fCOO3aNZPtRsKC1qVBlRK8WyJOTssx4s0DLJRb88RUxhSFzMaquKlbOwnfUXR8AVGPvex1GhDTrX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Fri, 29 Oct 2021 14:14:43 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Next-Gen-Cso:
+      - khoCy5Vc1J5mc12Z05JflXFX04KMdvNEn56s29ayZn2AEZoaq7C6fCOO3aNZPtRsKC1qVBlRK8WyJOTssx4s0DLJRb88RUxhSFzMaquKlbOwnfUXR8AVGPvex1GhDTrX
+      Content-Length:
+      - '451'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":{"transactionDate":"2021-10-29T09:14:43.778-0500","billablePages":1,"loginId":"<LOGIN>","clientCode":"","firmId":"","search":"All
+        Courts; Case Title Slartibartfast","description":"All Court Types Case Search","csoId":4697705,"reportId":"fad137c8-f5e1-4dd6-aeb3-52482e3a595e","searchFee":".10"},"pageInfo":{"number":1,"size":54,"totalPages":0,"totalElements":0,"numberOfElements":0,"first":false,"last":true},"content":[],"masterCase":null}'
+  recorded_at: Fri, 29 Oct 2021 14:14:43 GMT
+recorded_with: VCR 6.0.0
