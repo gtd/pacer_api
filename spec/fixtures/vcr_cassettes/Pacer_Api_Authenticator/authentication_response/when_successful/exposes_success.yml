@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Tue, 19 Oct 2021 17:13:22 GMT
+      - Fri, 29 Oct 2021 13:14:00 GMT
       Server:
       - Apache
       X-Content-Type-Options:
@@ -43,6 +43,6 @@ http_interactions:
         path=/; Httponly; Secure
     body:
       encoding: UTF-8
-      string: '{"nextGenCSO":"wFlIvajsjMsftBaPkMHnzFKaYvZ0W0FvunhGU4n1btEYFZ7TPDk0Zx864WfxAqZw5dzP2sa6JmVnpc5PJKvbnkn9LixLkWAXV6ouj5Ubi8HzN3RPsp6BRNS1PvSkluB1","loginResult":"0"}'
-  recorded_at: Tue, 19 Oct 2021 17:13:22 GMT
+      string: '{"nextGenCSO":"AH5rwvHzt0kPSq8J4thDqMZ5GhD7sNxlNlf8UaQXeNauDWrT9zXLXbj7VCGWfDkWCtyRU5e7cgRpFZbAaGw6UEPmtQ4y39wi5NbtFZVjxYBQgxHXRAEO7YRCJYszg2tI","loginResult":"0"}'
+  recorded_at: Fri, 29 Oct 2021 13:14:00 GMT
 recorded_with: VCR 6.0.0

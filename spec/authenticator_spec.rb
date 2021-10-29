@@ -7,35 +7,28 @@ RSpec.describe Pacer::Api::Authenticator do
     described_class.new(login, password, environment: :qa)
   }
 
-  describe "authentication response" do
+  describe "authentication response", :vcr do
     subject(:response) { authenticator.authenticate }
 
     context "when unsuccessful" do
-      around do |example|
-        VCR.use_cassette("login_incorrect") { example.call }
-      end
-
       let(:login) { "kodos2024" }
       let(:password) { "Incorr3ct!" }
 
-      it { is_expected.not_to be_success }
+      it "exposes failure" do
+        expect(response).not_to be_success
+      end
     end
 
     context "when successful" do
-      around do |example|
-        VCR.use_cassette("login_correct") { example.call }
-      end
-
       let(:login) { PACER_LOGIN }
       let(:password) { PACER_PASSWORD }
 
-      it { is_expected.to be_success }
+      it "exposes success" do
+        expect(response).to be_success
+      end
 
       it "returns the sign on token" do
-        expect(response.token).to eq(
-          "wFlIvajsjMsftBaPkMHnzFKaYvZ0W0FvunhGU4n1btEYFZ7TPDk0Zx864WfxAqZw" \
-          "5dzP2sa6JmVnpc5PJKvbnkn9LixLkWAXV6ouj5Ubi8HzN3RPsp6BRNS1PvSkluB1"
-        )
+        expect(response.token).to match(/\A[A-Za-z0-9]{128}\z/)
       end
     end
   end

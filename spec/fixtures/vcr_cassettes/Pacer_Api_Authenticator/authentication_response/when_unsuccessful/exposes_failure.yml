@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Tue, 19 Oct 2021 17:09:52 GMT
+      - Fri, 29 Oct 2021 13:13:58 GMT
       Server:
       - Apache
       X-Content-Type-Options:
@@ -44,5 +44,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"loginResult":"1","errorDescription":"Login Failed"}'
-  recorded_at: Tue, 19 Oct 2021 17:09:52 GMT
+  recorded_at: Fri, 29 Oct 2021 13:13:58 GMT
 recorded_with: VCR 6.0.0
