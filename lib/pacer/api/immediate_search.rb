@@ -2,7 +2,6 @@
 
 require "faraday"
 require "json"
-require "ostruct"
 
 require "pacer/api/translation"
 
@@ -65,14 +64,6 @@ module Pacer
 
         def page_info(key)
           payload.fetch(:page_info).fetch(key)
-        end
-      end
-
-      CaseInfo = Class.new(OpenStruct)
-
-      PartyInfo = Class.new(OpenStruct) do
-        def court_case
-          @court_case ||= ImmediateSearch::CaseInfo.new(self[:court_case])
         end
       end
     end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "pacer/api/immediate_search"
+require "pacer/api/case_info"
 
 module Pacer
   module Api
@@ -19,7 +20,7 @@ module Pacer
 
       class Response < ImmediateSearch::AbstractResponse
         def cases
-          payload.fetch(:content).map { |h| ImmediateSearch::CaseInfo.new(h) }
+          payload.fetch(:content).map { |h| CaseInfo.new(h) }
         end
       end
     end
