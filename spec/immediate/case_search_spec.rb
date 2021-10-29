@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require "pacer/api/authenticator"
-require "pacer/api/case_search"
+require "pacer/authenticator"
+require "pacer/immediate/case_search"
 
-RSpec.describe Pacer::Api::CaseSearch do
+RSpec.describe Pacer::Immediate::CaseSearch do
   subject(:case_search) {
     described_class.new(token, params, environment: :qa)
   }
 
   let(:token) {
-    Pacer::Api::Authenticator
+    Pacer::Authenticator
       .new(PACER_LOGIN, PACER_PASSWORD, environment: :qa)
       .authenticate
       .token

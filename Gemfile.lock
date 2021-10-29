@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pacer-api (0.1.0)
+    pacer (0.1.0)
       activesupport
       faraday
 
@@ -97,7 +97,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  pacer-api!
+  pacer!
   rake (~> 13.0)
   rspec
   rubocop (~> 1.7)

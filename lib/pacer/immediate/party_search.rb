@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "pacer/api/immediate_search"
-require "pacer/api/case_info"
-require "pacer/api/party_info"
+require "pacer/immediate/abstract_search"
+require "pacer/case_info"
+require "pacer/party_info"
 
 module Pacer
-  module Api
-    class PartySearch < ImmediateSearch
+  module Immediate
+    class PartySearch < AbstractSearch
       URL = "https://%s/pcl-public-api/rest/parties/find?page=%d"
 
     private
@@ -19,7 +19,7 @@ module Pacer
         format(URL, DOMAINS.fetch(@environment), page)
       end
 
-      class Response < ImmediateSearch::AbstractResponse
+      class Response < AbstractResponse
         def parties
           payload.fetch(:content).map { |h| PartyInfo.new(h) }
         end

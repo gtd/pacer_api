@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "pacer/api/authenticator"
+require "pacer/authenticator"
 
-RSpec.describe Pacer::Api::Authenticator do
+RSpec.describe Pacer::Authenticator do
   subject(:authenticator) {
     described_class.new(login, password, environment: :qa)
   }

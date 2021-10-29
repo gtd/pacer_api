@@ -2,8 +2,8 @@
 
 require "json"
 
-require "pacer/api/request_translator"
-require "pacer/api/response_translator"
+require "pacer/request_translator"
+require "pacer/response_translator"
 
 module Pacer
   module Api

@@ -3,11 +3,11 @@
 require "faraday"
 require "json"
 
-require "pacer/api/translation"
+require "pacer/translation"
 
 module Pacer
-  module Api
-    class ImmediateSearch
+  module Immediate
+    class AbstractSearch
       include Pacer::Api::Translation
 
       DOMAINS = {

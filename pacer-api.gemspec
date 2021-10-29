@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/pacer/api/version"
+require_relative "lib/pacer/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "pacer-api"
-  spec.version       = Pacer::Api::VERSION
+  spec.name          = "pacer"
+  spec.version       = Pacer::VERSION
   spec.authors       = ["Paul Battley"]
   spec.email         = ["pbattley@gmail.com"]
 

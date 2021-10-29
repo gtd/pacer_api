@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require "pacer/api/immediate_search"
-require "pacer/api/case_info"
+require "pacer/immediate/abstract_search"
+require "pacer/case_info"
 
 module Pacer
-  module Api
-    class CaseSearch < ImmediateSearch
+  module Immediate
+    class CaseSearch < AbstractSearch
       URL = "https://%s/pcl-public-api/rest/cases/find?page=%d"
 
     private
@@ -18,7 +18,7 @@ module Pacer
         format(URL, DOMAINS.fetch(@environment), page)
       end
 
-      class Response < ImmediateSearch::AbstractResponse
+      class Response < AbstractResponse
         def cases
           payload.fetch(:content).map { |h| CaseInfo.new(h) }
         end

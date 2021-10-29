@@ -3,7 +3,5 @@
 require "ostruct"
 
 module Pacer
-  module Api
-    CaseInfo = Class.new(OpenStruct)
-  end
+  CaseInfo = Class.new(OpenStruct)
 end
