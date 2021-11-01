@@ -3,6 +3,7 @@
 require "faraday"
 require "json"
 
+require "pacer"
 require "pacer/translation"
 
 module Pacer
@@ -39,8 +40,12 @@ module Pacer
         build_response(decode_response(res.body))
       end
 
-      def endpoint(page)
-        format(URL, DOMAINS.fetch(@environment), page)
+      def build_response(_payload)
+        raise NotImplementedError
+      end
+
+      def endpoint(_page)
+        raise NotImplementedError
       end
 
       AbstractResponse = Struct.new(:payload) do

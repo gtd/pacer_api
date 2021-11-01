@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "version"
+require_relative "pacer/version"
 
 module Pacer
-  class Error < StandardError; end
+  Error = Class.new(StandardError)
+  NotImplementedError = Class.new(StandardError)
 end
