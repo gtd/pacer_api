@@ -6,7 +6,7 @@ require "pacer/translation"
 
 module Pacer
   class Session
-    include Pacer::Api::Translation
+    include Pacer::Translation
 
     HOSTS = {
       production: "pcl.uscourts.gov",
@@ -45,7 +45,7 @@ module Pacer
         req.headers["Content-Type"] = "application/json"
         req.headers["Accept"] = "application/json"
         req.headers["X-NEXT-GEN-CSO"] = @token
-        blk.call(req) if blk
+        blk.call(req) if block_given?
       }
       update_token! res.headers
       res
