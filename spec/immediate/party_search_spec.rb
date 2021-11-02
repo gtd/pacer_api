@@ -5,18 +5,17 @@ require "pacer/immediate/party_search"
 
 RSpec.describe Pacer::Immediate::PartySearch do
   subject(:party_search) {
-    described_class.new(token, params, environment: :qa)
+    described_class.new(session, params)
   }
 
-  let(:token) {
+  let(:session) {
     Pacer::Authenticator
       .new(PACER_LOGIN, PACER_PASSWORD, environment: :qa)
       .authenticate
-      .token
   }
 
-  describe "run", :vcr do
-    subject(:result) { party_search.run }
+  describe "search", :vcr do
+    subject(:result) { party_search.search }
 
     context "when there are no results" do
       let(:params) { { last_name: "Slartibartfast" } }
@@ -82,7 +81,7 @@ RSpec.describe Pacer::Immediate::PartySearch do
     end
 
     context "when requesting a subsequent page" do
-      subject(:result) { party_search.run(2) }
+      subject(:result) { party_search.search(2) }
 
       let(:params) { { last_name: "Smith" } }
 

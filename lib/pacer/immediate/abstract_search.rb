@@ -1,44 +1,20 @@
 # frozen_string_literal: true
 
-require "faraday"
-require "json"
-
 require "pacer"
-require "pacer/translation"
 
 module Pacer
   module Immediate
     class AbstractSearch
-      include Pacer::Api::Translation
-
-      DOMAINS = {
-        production: "pcl.uscourts.gov",
-        qa: "qa-pcl.uscourts.gov"
-      }.freeze
-
-      def initialize(token, params, client_code: nil, environment: :production)
-        @token = token
+      def initialize(session, params)
+        @session = session
         @params = params
-        @client_code = client_code
-        @environment = environment
       end
 
-      def run(page = 1)
-        request(@params, page)
+      def search(page = 1)
+        build_response(@session.post(endpoint(page), @params))
       end
 
     private
-
-      def request(params, page)
-        res = Faraday.post(endpoint(page)) { |req|
-          req.headers["Content-Type"] = "application/json"
-          req.headers["Accept"] = "application/json"
-          req.headers["X-NEXT-GEN-CSO"] = @token
-          req.headers["X-CLIENT-CODE"] = @client_code if @client_code
-          req.body = encode_request(params)
-        }
-        build_response(decode_response(res.body))
-      end
 
       def build_response(_payload)
         raise NotImplementedError

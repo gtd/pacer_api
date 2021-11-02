@@ -5,18 +5,17 @@ require "pacer/immediate/case_search"
 
 RSpec.describe Pacer::Immediate::CaseSearch do
   subject(:case_search) {
-    described_class.new(token, params, environment: :qa)
+    described_class.new(session, params)
   }
 
-  let(:token) {
+  let(:session) {
     Pacer::Authenticator
       .new(PACER_LOGIN, PACER_PASSWORD, environment: :qa)
       .authenticate
-      .token
   }
 
-  describe "run", :vcr do
-    subject(:result) { case_search.run }
+  describe "search", :vcr do
+    subject(:result) { case_search.search }
 
     context "when there are no results" do
       let(:params) { { case_title: "Slartibartfast" } }
@@ -64,7 +63,7 @@ RSpec.describe Pacer::Immediate::CaseSearch do
     end
 
     context "when requesting a subsequent page" do
-      subject(:result) { case_search.run(2) }
+      subject(:result) { case_search.search(2) }
 
       let(:params) { { case_title: "THE" } }
 

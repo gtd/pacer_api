@@ -5,7 +5,7 @@ http_interactions:
     uri: https://qa-login.uscourts.gov/services/cso-auth
     body:
       encoding: UTF-8
-      string: '{"loginId":"kodos2024","password":"Incorr3ct!","redactFlag":"1"}'
+      string: '{"loginId":"<LOGIN>","password":"<PASSWORD>","redactFlag":"1"}'
     headers:
       User-Agent:
       - Faraday v1.8.0
@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Fri, 29 Oct 2021 13:13:58 GMT
+      - Tue, 02 Nov 2021 12:29:39 GMT
       Server:
       - Apache
       X-Content-Type-Options:
@@ -29,7 +29,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Content-Length:
-      - '53'
+      - '163'
       X-Xss-Protection:
       - 1; mode=block
       Strict-Transport-Security:
@@ -39,10 +39,10 @@ http_interactions:
       Content-Type:
       - application/json
       Set-Cookie:
-      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956co443;
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956bo443;
         path=/; Httponly; Secure
     body:
       encoding: UTF-8
-      string: '{"loginResult":"1","errorDescription":"Login Failed"}'
-  recorded_at: Fri, 29 Oct 2021 13:13:58 GMT
+      string: '{"nextGenCSO":"hzzSr3bfn8kZ8Q16ktEHoA7sRj2q0h8cR1IlkBvJ0Qoq7vSOd1lC6Hy5K9I6mTDBvJbT7WNSUZUq4SFjQ9tTbYNBpXh2NHUrnP8gaZrkemAbYtIjcwXbfOcmvyGNjSbE","loginResult":"0"}'
+  recorded_at: Tue, 02 Nov 2021 12:29:40 GMT
 recorded_with: VCR 6.0.0

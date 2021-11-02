@@ -6,7 +6,7 @@ require "pacer/case_info"
 module Pacer
   module Immediate
     class CaseSearch < AbstractSearch
-      URL = "https://%s/pcl-public-api/rest/cases/find?page=%d"
+      FRAGMENT = "cases/find?page=%d"
 
     private
 
@@ -15,7 +15,7 @@ module Pacer
       end
 
       def endpoint(page)
-        format(URL, DOMAINS.fetch(@environment), page)
+        format(FRAGMENT, page)
       end
 
       class Response < AbstractResponse

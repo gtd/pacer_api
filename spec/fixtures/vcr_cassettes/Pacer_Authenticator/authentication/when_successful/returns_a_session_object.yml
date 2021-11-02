@@ -21,7 +21,7 @@ http_interactions:
       message: '200'
     headers:
       Date:
-      - Fri, 29 Oct 2021 13:13:59 GMT
+      - Tue, 02 Nov 2021 12:29:40 GMT
       Server:
       - Apache
       X-Content-Type-Options:
@@ -39,10 +39,10 @@ http_interactions:
       Content-Type:
       - application/json
       Set-Cookie:
-      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956co443;
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956bo443;
         path=/; Httponly; Secure
     body:
       encoding: UTF-8
-      string: '{"nextGenCSO":"GvdP2XvSYURtL6w1EHjAz3cA7A2HoJRpUCivhSReqRyegiyPuS4WX6w3OolVZI9PxoCDPEFpDkPFSMWoYhVhQ1j8kzrAuopxo7kr2yXqdCjDsJ6gfsruNoSDXyTF4UqK","loginResult":"0"}'
-  recorded_at: Fri, 29 Oct 2021 13:13:59 GMT
+      string: '{"nextGenCSO":"Mj5hZFILLryXz4A9f6Pp6DMqctVia1GxJCiq7Y7OXCROcr2jzEfnH6teFe21OoyfZE4fx1sHRMpnwGQfxmeAAM367Ma1foVsHZc1bh77yM7eqqgkL888MdrimeuUHlX7","loginResult":"0"}'
+  recorded_at: Tue, 02 Nov 2021 12:29:40 GMT
 recorded_with: VCR 6.0.0

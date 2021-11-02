@@ -50,6 +50,10 @@ Style/BlockDelimiters:
 Style/Documentation:
   Enabled: false
 
+# This always wants really long lines
+Style/IfUnlessModifier:
+  Enabled: false
+
 # I don't always want to write 12_345
 Style/NumericLiterals:
   Enabled: false

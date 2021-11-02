@@ -7,7 +7,7 @@ require "pacer/party_info"
 module Pacer
   module Immediate
     class PartySearch < AbstractSearch
-      URL = "https://%s/pcl-public-api/rest/parties/find?page=%d"
+      FRAGMENT = "parties/find?page=%d"
 
     private
 
@@ -16,7 +16,7 @@ module Pacer
       end
 
       def endpoint(page)
-        format(URL, DOMAINS.fetch(@environment), page)
+        format(FRAGMENT, page)
       end
 
       class Response < AbstractResponse

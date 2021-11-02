@@ -14,5 +14,3 @@ VCR.configure do |config|
   config.filter_sensitive_data("<PASSWORD>") { PACER_PASSWORD }
   config.configure_rspec_metadata!
 end
-
-WebMock.disable_net_connect!

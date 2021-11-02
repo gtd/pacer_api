@@ -3,13 +3,17 @@
 require "faraday"
 require "json"
 
+require "pacer"
+require "pacer/session"
+
 module Pacer
   class Authenticator
-    DOMAINS = {
+    HOSTS = {
       production: "pacer.login.uscourts.gov",
       qa: "qa-login.uscourts.gov"
     }.freeze
-    URL = "https://%s/services/cso-auth"
+
+    PATH = "/services/cso-auth"
 
     def initialize(
       login_id, password, client_code: nil, environment: :production
@@ -18,10 +22,14 @@ module Pacer
       @password = password
       @client_code = client_code
       @environment = environment
+      @uri = URI::HTTPS.build(
+        host: HOSTS.fetch(environment),
+        path: PATH
+      )
     end
 
     def authenticate
-      res = Faraday.post(endpoint) { |req|
+      res = Faraday.post(@uri) { |req|
         req.headers["Content-Type"] = "application/json"
         req.headers["Accept"] = "application/json"
         req.body = build_request_body
@@ -30,10 +38,6 @@ module Pacer
     end
 
   private
-
-    def endpoint
-      format(URL, DOMAINS.fetch(@environment))
-    end
 
     def build_request_body
       params = {
@@ -47,18 +51,11 @@ module Pacer
 
     def parse_response(body)
       data = JSON.parse(body)
-      Response.new(
-        data.fetch("nextGenCSO", nil),
-        data.fetch("loginResult"),
-        data.fetch("errorDescription", nil)
-      )
-    end
-
-    Response = Struct.new(:next_gen_cso, :login_result, :error_description) do
-      alias_method :token, :next_gen_cso
-      def success?
-        login_result == "0"
+      if data.fetch("loginResult") != "0"
+        raise AuthenticationError, data.fetch("errorDescription")
       end
+
+      Session.new(data.fetch("nextGenCSO"), environment: @environment)
     end
   end
 end
