@@ -1,0 +1,382 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://qa-login.uscourts.gov/services/cso-auth
+    body:
+      encoding: UTF-8
+      string: '{"loginId":"<LOGIN>","password":"<PASSWORD>","redactFlag":"1"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 18:42:53 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '163'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956bo443;
+        path=/; Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: '{"nextGenCSO":"5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD","loginResult":"0"}'
+  recorded_at: Tue, 02 Nov 2021 18:42:53 GMT
+- request:
+    method: post
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/download
+    body:
+      encoding: UTF-8
+      string: '{"caseTitle":"Barnes"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - 5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 18:42:53 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Next-Gen-Cso:
+      - 5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD
+      Content-Length:
+      - '370'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"reportId":1309,"status":"RUNNING","startTime":null,"endTime":null,"recordCount":null,"unbilledPageCount":null,"downloadFee":null,"pages":null,"sort":{"orders":[]},"searchType":"COURT_CASE","criteria":{"searchType":"COURT_CASE","courtId":[],"requestType":"Batch","requestSource":"API","caseType":[],"caseTitle":"Barnes","federalBankruptcyChapter":[],"natureOfSuit":[]}}'
+  recorded_at: Tue, 02 Nov 2021 18:42:54 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/download/status/1309
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - 5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 18:42:59 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '415'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"reportId":1309,"status":"COMPLETED","startTime":"2021-11-02T13:42:54.000-0500","endTime":"2021-11-02T13:42:54.000-0500","recordCount":14,"unbilledPageCount":1,"downloadFee":0.1,"pages":1,"sort":{"orders":[]},"searchType":"COURT_CASE","criteria":{"searchType":"COURT_CASE","courtId":[],"requestType":"Batch","requestSource":"API","caseType":[],"caseTitle":"Barnes","federalBankruptcyChapter":[],"natureOfSuit":[]}}'
+  recorded_at: Tue, 02 Nov 2021 18:42:59 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/download/1309
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - 5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 18:42:59 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '5444'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: "{\n    \"content\" : [{\n        \"courtId\" : \"azt5ca\",\"caseId\"
+        : \"9056\",\"caseYear\" : \"1993\",\"caseNumber\" : \"3013\",\"caseOffice\"
+        : \"0\",\"caseType\" : \"cv\",\"caseTitle\" : \"Barnes Hospital v. Curtis
+        C. Crawford, et al\",\"dateFiled\" : \"1993-08-11\",\"dateTermed\" : \"1993-11-10\",\"natureOfSuit\"
+        : \"3791\",\"effectiveDateClosed\" : \"1993-11-10\",\"caseNumberFull\" : \"0:1993cv03013\"\n
+        \     },{\n        \"courtId\" : \"aztica\",\"caseId\" : \"9056\",\"caseYear\"
+        : \"1993\",\"caseNumber\" : \"3013\",\"caseOffice\" : \"0\",\"caseType\" :
+        \"cv\",\"caseTitle\" : \"Barnes Hospital v. Curtis C. Crawford, et al\",\"dateFiled\"
+        : \"1993-08-11\",\"dateTermed\" : \"1993-11-10\",\"natureOfSuit\" : \"3791\",\"effectiveDateClosed\"
+        : \"1993-11-10\",\"caseNumberFull\" : \"0:1993cv03013\"\n      },{\n        \"courtId\"
+        : \"azttca\",\"caseId\" : \"9056\",\"caseYear\" : \"1993\",\"caseNumber\"
+        : \"3013\",\"caseOffice\" : \"0\",\"caseType\" : \"cv\",\"caseTitle\" : \"Barnes
+        Hospital v. Curtis C. Crawford, et al\",\"dateFiled\" : \"1993-08-11\",\"dateTermed\"
+        : \"1993-11-10\",\"natureOfSuit\" : \"3791\",\"effectiveDateClosed\" : \"1993-11-10\",\"caseLink\"
+        : \"https://ecf.tc1a.aztc.uscourts.gov/cmecf/servlet/TransportRoom?servlet=CaseSummary.jsp?caseNum=9056&dktType=dktPublic&incOrigDkt=Y&incDktEntries=Y\",\"caseNumberFull\"
+        : \"0:1993cv03013\"\n      },{\n        \"courtId\" : \"aztxca\",\"caseId\"
+        : \"9056\",\"caseYear\" : \"1993\",\"caseNumber\" : \"3013\",\"caseOffice\"
+        : \"0\",\"caseType\" : \"cv\",\"caseTitle\" : \"Barnes Hospital v. Curtis
+        C. Crawford, et al\",\"dateFiled\" : \"1993-08-11\",\"dateTermed\" : \"1993-11-10\",\"natureOfSuit\"
+        : \"3791\",\"effectiveDateClosed\" : \"1993-11-10\",\"caseNumberFull\" : \"0:1993cv03013\"\n
+        \     },{\n        \"courtId\" : \"cm2ca\",\"caseId\" : \"9056\",\"caseYear\"
+        : \"1993\",\"caseNumber\" : \"3013\",\"caseOffice\" : \"0\",\"caseType\" :
+        \"cv\",\"caseTitle\" : \"Barnes Hospital v. Curtis C. Crawford, et al\",\"dateFiled\"
+        : \"1993-08-11\",\"dateTermed\" : \"1993-11-10\",\"natureOfSuit\" : \"3791\",\"effectiveDateClosed\"
+        : \"1993-11-10\",\"caseNumberFull\" : \"0:1993cv03013\"\n      },{\n        \"courtId\"
+        : \"azt5ca\",\"caseId\" : \"10186\",\"caseYear\" : \"1993\",\"caseNumber\"
+        : \"8019\",\"caseOffice\" : \"0\",\"caseType\" : \"ms\",\"caseTitle\" : \"Barnes
+        Hospital, et al v. Sanus Passport, et al\",\"dateFiled\" : \"1993-01-21\",\"dateTermed\"
+        : \"1993-02-15\",\"natureOfSuit\" : \"1\",\"effectiveDateClosed\" : \"1993-02-15\",\"caseNumberFull\"
+        : \"0:1993ms08019\"\n      },{\n        \"courtId\" : \"aztica\",\"caseId\"
+        : \"10186\",\"caseYear\" : \"1993\",\"caseNumber\" : \"8019\",\"caseOffice\"
+        : \"0\",\"caseType\" : \"ms\",\"caseTitle\" : \"Barnes Hospital, et al v.
+        Sanus Passport, et al\",\"dateFiled\" : \"1993-01-21\",\"dateTermed\" : \"1993-02-15\",\"natureOfSuit\"
+        : \"1\",\"effectiveDateClosed\" : \"1993-02-15\",\"caseNumberFull\" : \"0:1993ms08019\"\n
+        \     },{\n        \"courtId\" : \"azttca\",\"caseId\" : \"10186\",\"caseYear\"
+        : \"1993\",\"caseNumber\" : \"8019\",\"caseOffice\" : \"0\",\"caseType\" :
+        \"ms\",\"caseTitle\" : \"Barnes Hospital, et al v. Sanus Passport, et al\",\"dateFiled\"
+        : \"1993-01-21\",\"dateTermed\" : \"1993-02-15\",\"natureOfSuit\" : \"1\",\"effectiveDateClosed\"
+        : \"1993-02-15\",\"caseLink\" : \"https://ecf.tc1a.aztc.uscourts.gov/cmecf/servlet/TransportRoom?servlet=CaseSummary.jsp?caseNum=10186&dktType=dktPublic&incOrigDkt=Y&incDktEntries=Y\",\"caseNumberFull\"
+        : \"0:1993ms08019\"\n      },{\n        \"courtId\" : \"aztxca\",\"caseId\"
+        : \"10186\",\"caseYear\" : \"1993\",\"caseNumber\" : \"8019\",\"caseOffice\"
+        : \"0\",\"caseType\" : \"ms\",\"caseTitle\" : \"Barnes Hospital, et al v.
+        Sanus Passport, et al\",\"dateFiled\" : \"1993-01-21\",\"dateTermed\" : \"1993-02-15\",\"natureOfSuit\"
+        : \"1\",\"effectiveDateClosed\" : \"1993-02-15\",\"caseNumberFull\" : \"0:1993ms08019\"\n
+        \     },{\n        \"courtId\" : \"cm2ca\",\"caseId\" : \"10186\",\"caseYear\"
+        : \"1993\",\"caseNumber\" : \"8019\",\"caseOffice\" : \"0\",\"caseType\" :
+        \"ms\",\"caseTitle\" : \"Barnes Hospital, et al v. Sanus Passport, et al\",\"dateFiled\"
+        : \"1993-01-21\",\"dateTermed\" : \"1993-02-15\",\"natureOfSuit\" : \"1\",\"effectiveDateClosed\"
+        : \"1993-02-15\",\"caseNumberFull\" : \"0:1993ms08019\"\n      },{\n        \"courtId\"
+        : \"azttdc\",\"caseId\" : \"95108\",\"caseYear\" : \"2014\",\"caseNumber\"
+        : \"1695\",\"caseOffice\" : \"2\",\"caseType\" : \"cv\",\"caseTitle\" : \"BARNES
+        v. CHEEKS\",\"dateFiled\" : \"2014-06-01\",\"natureOfSuit\" : \"835\",\"caseLink\"
+        : \"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?95108\",\"caseNumberFull\"
+        : \"2:2014cv01695\"\n      },{\n        \"courtId\" : \"azttdc\",\"caseId\"
+        : \"10129\",\"caseYear\" : \"2007\",\"caseNumber\" : \"172\",\"caseOffice\"
+        : \"0\",\"caseType\" : \"cv\",\"caseTitle\" : \"Barnes v. Dermont\",\"dateFiled\"
+        : \"2007-05-10\",\"natureOfSuit\" : \"110\",\"caseLink\" : \"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?10129\",\"caseNumberFull\"
+        : \"0:2007cv00172\"\n      },{\n        \"courtId\" : \"azttdc\",\"caseId\"
+        : \"24027\",\"caseYear\" : \"2008\",\"caseNumber\" : \"693\",\"caseOffice\"
+        : \"2\",\"caseType\" : \"cv\",\"caseTitle\" : \"Barnes v. Reed\",\"dateFiled\"
+        : \"2008-12-02\",\"dateReopened\" : \"2008-12-02\",\"natureOfSuit\" : \"440\",\"caseLink\"
+        : \"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?24027\",\"caseNumberFull\"
+        : \"2:2008cv00693\"\n      },{\n        \"courtId\" : \"azttdc\",\"caseId\"
+        : \"10842\",\"caseYear\" : \"2007\",\"caseNumber\" : \"327\",\"caseOffice\"
+        : \"0\",\"caseType\" : \"cv\",\"caseTitle\" : \"Barnesby v. Barnes\",\"dateFiled\"
+        : \"2007-08-27\",\"natureOfSuit\" : \"110\",\"caseLink\" : \"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?10842\",\"caseNumberFull\"
+        : \"0:2007cv00327\"\n      }], \n    \"receipt\": {\n    \"billablePages\":
+        1,\n    \"fee\": 0.1,\n    \"loginId\": \"<LOGIN>\",\n    \"clientCode\":
+        \"\",\n    \"firmId\": \"\",\n    \"search\": \"All Courts; Case Title Barnes;
+        Batch\",\n    \"description\": \"All Court Types Case Search\",\n    \"csoId\":
+        4697705}}"
+  recorded_at: Tue, 02 Nov 2021 18:43:00 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/reports
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - 5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 18:43:00 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '531'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":null,"pageInfo":{"number":0,"size":54,"totalPages":1,"totalElements":1,"numberOfElements":1,"first":true,"last":true},"content":[{"reportId":1309,"status":"COMPLETED","startTime":"2021-11-02T13:42:54.000-0500","endTime":"2021-11-02T13:42:54.000-0500","recordCount":14,"unbilledPageCount":0,"downloadFee":0.0,"pages":1,"criteria":{"searchType":"COURT_CASE","courtId":[],"requestType":"Batch","requestSource":"API","caseType":[],"caseTitle":"Barnes","federalBankruptcyChapter":[],"natureOfSuit":[]},"sort":{"orders":[]}}]}'
+  recorded_at: Tue, 02 Nov 2021 18:43:00 GMT
+- request:
+    method: delete
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/reports/1309
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - 5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: '204'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 18:43:00 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Tue, 02 Nov 2021 18:43:01 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/cases/reports
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - 5ek5L2mmpdTQAjxPgRiW4yi0vqyjkinwGDIsjb91loLw87T7Nx4tDtz1rP3G1E8nSVyJXk9J4EGI2yjR5VmZI3kt8njQfFPJiSHAzkQA12BTg2uQ5mCXofEJtcQPg9uD
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 18:43:01 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '142'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":null,"pageInfo":{"number":0,"size":54,"totalPages":0,"totalElements":0,"numberOfElements":0,"first":true,"last":true},"content":[]}'
+  recorded_at: Tue, 02 Nov 2021 18:43:01 GMT
+recorded_with: VCR 6.0.0

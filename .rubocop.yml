@@ -25,12 +25,20 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
 
+RSpec/DescribeClass:
+  Exclude:
+    - spec/integration/**/*
+
+RSpec/ExampleLength:
+  Enabled: false
+
 # Don't see a need to add the same 3 level nested prefix to every spec path.
 RSpec/FilePath:
   Enabled: false
 
-RSpec/ExampleLength:
-  Enabled: false
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/integration/**/*
 
 Style/Alias:
   EnforcedStyle: prefer_alias_method
