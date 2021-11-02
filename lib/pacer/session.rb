@@ -23,18 +23,33 @@ module Pacer
       )
     end
 
-    def post(path, doc)
-      res = Faraday.post(@uri.merge(path)) { |req|
-        req.headers["Content-Type"] = "application/json"
-        req.headers["Accept"] = "application/json"
-        req.headers["X-NEXT-GEN-CSO"] = @token
-        req.body = encode_request(doc)
-      }
-      update_token! res.headers
+    def get(path)
+      res = request(:get, path)
       decode_response(res.body)
     end
 
+    def post(path, doc)
+      res = request(:post, path) { |req| req.body = encode_request(doc) }
+      decode_response(res.body)
+    end
+
+    def delete(path)
+      res = request(:delete, path)
+      res.status == 204
+    end
+
   private
+
+    def request(verb, path, &blk)
+      res = Faraday.public_send(verb, @uri.merge(path)) { |req|
+        req.headers["Content-Type"] = "application/json"
+        req.headers["Accept"] = "application/json"
+        req.headers["X-NEXT-GEN-CSO"] = @token
+        blk.call(req) if blk
+      }
+      update_token! res.headers
+      res
+    end
 
     def update_token!(headers)
       new_token = headers["X-NEXT-GEN-CSO"]
