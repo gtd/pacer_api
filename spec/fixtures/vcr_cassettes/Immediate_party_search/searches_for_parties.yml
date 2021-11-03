@@ -1,0 +1,464 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://qa-login.uscourts.gov/services/cso-auth
+    body:
+      encoding: UTF-8
+      string: '{"loginId":"<LOGIN>","password":"<PASSWORD>","redactFlag":"1"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Wed, 03 Nov 2021 12:45:29 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '163'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956bo443;
+        path=/; Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: '{"nextGenCSO":"m08W303JLNUlmvkXTdFvcpWQvPlMzVWkj8CQVRDeevv4Gx8pp6d8GX1CTgmTh6c3O8TWOdzi02YuV0UInB2kiFuGORcwIkIv42eYb5j8oDQCOqCrtwb6s9gihASi2l1b","loginResult":"0"}'
+  recorded_at: Wed, 03 Nov 2021 12:45:30 GMT
+- request:
+    method: post
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/find?page=1
+    body:
+      encoding: UTF-8
+      string: '{"lastName":"Smith"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - m08W303JLNUlmvkXTdFvcpWQvPlMzVWkj8CQVRDeevv4Gx8pp6d8GX1CTgmTh6c3O8TWOdzi02YuV0UInB2kiFuGORcwIkIv42eYb5j8oDQCOqCrtwb6s9gihASi2l1b
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Wed, 03 Nov 2021 12:45:30 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Next-Gen-Cso:
+      - m08W303JLNUlmvkXTdFvcpWQvPlMzVWkj8CQVRDeevv4Gx8pp6d8GX1CTgmTh6c3O8TWOdzi02YuV0UInB2kiFuGORcwIkIv42eYb5j8oDQCOqCrtwb6s9gihASi2l1b
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":{"transactionDate":"2021-11-03T07:45:30.687-0500","billablePages":0,"loginId":"<LOGIN>","clientCode":"","firmId":"","search":"All
+        Courts; Name Smith; Page: 2","description":"All Court Types Party Search","csoId":4697705,"reportId":"6ce8b20b-baef-4a0b-a486-ee27c236ab0f","searchFee":".00"},"pageInfo":{"number":1,"size":54,"totalPages":101,"totalElements":5401,"numberOfElements":54,"first":false,"last":false},"content":[{"courtId":"azttdc","caseId":12153,"caseYear":2005,"caseNumber":1234,"lastName":"Smith","firstName":"Henry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12153,"caseYear":2005,"caseNumber":1234,"caseOffice":"1","caseType":"cv","caseTitle":"v.
+        Thomas et al","dateFiled":"2008-04-09","natureOfSuit":"190","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12153","caseNumberFull":"1:2005cv01234"},"dateFiled":"2008-04-09","natureOfSuit":"190","caseNumberFull":"1:2005cv01234","caseOffice":"1","caseType":"cv","caseTitle":"v.
+        Thomas et al"},{"courtId":"azttdc","caseId":12155,"caseYear":2005,"caseNumber":2345,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12155,"caseYear":2005,"caseNumber":2345,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Dread - William Dread","dateFiled":"2008-04-09","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12155","caseNumberFull":"1:2005cr02345"},"dateFiled":"2008-04-09","natureOfSuit":"1","caseNumberFull":"1:2005cr02345","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Dread - William Dread"},{"courtId":"azttdc","caseId":12158,"caseYear":2002,"caseNumber":4567,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12158,"caseYear":2002,"caseNumber":4567,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Frontier et al - John Frontier","dateFiled":"2008-04-09","dateTermed":"2008-04-09","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-04-09","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12158","caseNumberFull":"1:2002cr04567"},"dateFiled":"2008-04-09","dateTermed":"2008-04-09","natureOfSuit":"1","caseNumberFull":"1:2002cr04567","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Frontier et al - John Frontier"},{"courtId":"azttdc","caseId":12159,"caseYear":2002,"caseNumber":4567,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12159,"caseYear":2002,"caseNumber":4567,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Frontier et al - Jacob Tanner","dateFiled":"2008-04-09","dateTermed":"2008-04-09","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-04-09","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12159","caseNumberFull":"1:2002cr04567"},"dateFiled":"2008-04-09","dateTermed":"2008-04-09","natureOfSuit":"1","caseNumberFull":"1:2002cr04567","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Frontier et al - Jacob Tanner"},{"courtId":"azttdc","caseId":12169,"caseYear":2003,"caseNumber":5678,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12169,"caseYear":2003,"caseNumber":5678,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Jay Thomas","dateFiled":"2008-04-10","dateTermed":"2008-04-10","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-04-10","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12169","caseNumberFull":"1:2003cr05678"},"dateFiled":"2008-04-10","dateTermed":"2008-04-10","natureOfSuit":"1","caseNumberFull":"1:2003cr05678","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Jay Thomas"},{"courtId":"azttdc","caseId":12169,"caseYear":2003,"caseNumber":5678,"lastName":"Smith","firstName":"Johnny","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12169,"caseYear":2003,"caseNumber":5678,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Jay Thomas","dateFiled":"2008-04-10","dateTermed":"2008-04-10","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-04-10","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12169","caseNumberFull":"1:2003cr05678"},"dateFiled":"2008-04-10","dateTermed":"2008-04-10","natureOfSuit":"1","caseNumberFull":"1:2003cr05678","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Jay Thomas"},{"courtId":"azttdc","caseId":12170,"caseYear":2003,"caseNumber":5678,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12170,"caseYear":2003,"caseNumber":5678,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Tom Smither","dateFiled":"2008-04-10","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12170","caseNumberFull":"1:2003cr05678"},"dateFiled":"2008-04-10","natureOfSuit":"1","caseNumberFull":"1:2003cr05678","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Tom Smither"},{"courtId":"azttdc","caseId":12170,"caseYear":2003,"caseNumber":5678,"lastName":"Smith","firstName":"Johnny","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12170,"caseYear":2003,"caseNumber":5678,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Tom Smither","dateFiled":"2008-04-10","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12170","caseNumberFull":"1:2003cr05678"},"dateFiled":"2008-04-10","natureOfSuit":"1","caseNumberFull":"1:2003cr05678","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thomas et al - Tom Smither"},{"courtId":"azttdc","caseId":12172,"caseYear":2003,"caseNumber":6789,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12172,"caseYear":2003,"caseNumber":6789,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Border et al - Tim Border","dateFiled":"2008-04-10","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12172","caseNumberFull":"1:2003cr06789"},"dateFiled":"2008-04-10","natureOfSuit":"1","caseNumberFull":"1:2003cr06789","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Border et al - Tim Border"},{"courtId":"azttdc","caseId":12175,"caseYear":2004,"caseNumber":2345,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12175,"caseYear":2004,"caseNumber":2345,"caseOffice":"1","caseType":"x","caseTitle":"v.
+        Jacobs et al","dateFiled":"2008-04-10","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12175","caseNumberFull":"1:2004x02345"},"dateFiled":"2008-04-10","caseNumberFull":"1:2004x02345","caseOffice":"1","caseType":"x","caseTitle":"v.
+        Jacobs et al"},{"courtId":"azttdc","caseId":12179,"caseYear":2004,"caseNumber":3456,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12179,"caseYear":2004,"caseNumber":3456,"caseOffice":"1","caseType":"x","caseTitle":"USA
+        v. Morton - Jacob Morton","dateFiled":"2008-04-10","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12179","caseNumberFull":"1:2004x03456"},"dateFiled":"2008-04-10","natureOfSuit":"1","caseNumberFull":"1:2004x03456","caseOffice":"1","caseType":"x","caseTitle":"USA
+        v. Morton - Jacob Morton"},{"courtId":"azttdc","caseId":12184,"caseYear":2001,"caseNumber":456,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12184,"caseYear":2001,"caseNumber":456,"caseOffice":"1","caseType":"x","caseTitle":"Thomas
+        v. Thomas","dateFiled":"2008-04-10","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12184","caseNumberFull":"1:2001x00456"},"dateFiled":"2008-04-10","caseNumberFull":"1:2001x00456","caseOffice":"1","caseType":"x","caseTitle":"Thomas
+        v. Thomas"},{"courtId":"azttdc","caseId":12186,"caseYear":2005,"caseNumber":159,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12186,"caseYear":2005,"caseNumber":159,"caseOffice":"1","caseType":"x","caseTitle":"USA
+        v. Roberts - Thomas Roberts","dateFiled":"2008-04-10","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12186","caseNumberFull":"1:2005x00159"},"dateFiled":"2008-04-10","natureOfSuit":"1","caseNumberFull":"1:2005x00159","caseOffice":"1","caseType":"x","caseTitle":"USA
+        v. Roberts - Thomas Roberts"},{"courtId":"azttdc","caseId":12199,"caseYear":2008,"caseNumber":109,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12199,"caseYear":2008,"caseNumber":109,"caseOffice":"1","caseType":"x","caseTitle":"Will
+        v. Williams","dateFiled":"2008-04-11","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12199","caseNumberFull":"1:2008x00109"},"dateFiled":"2008-04-11","caseNumberFull":"1:2008x00109","caseOffice":"1","caseType":"x","caseTitle":"Will
+        v. Williams"},{"courtId":"azttdc","caseId":12207,"caseYear":2006,"caseNumber":1758,"lastName":"SMITH","firstName":"GEORGE","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12207,"caseYear":2006,"caseNumber":1758,"caseOffice":"3","caseType":"cr","caseTitle":"USA
+        v. Topaz et al - Chrys Ann Topaz","dateFiled":"2006-06-02","dateTermed":"2008-04-07","natureOfSuit":"C","jurisdictionType":"Criminal","effectiveDateClosed":"2008-04-07","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12207","caseNumberFull":"3:2006cr01758"},"dateFiled":"2006-06-02","dateTermed":"2008-04-07","natureOfSuit":"C","caseNumberFull":"3:2006cr01758","caseOffice":"3","caseType":"cr","caseTitle":"USA
+        v. Topaz et al - Chrys Ann Topaz"},{"courtId":"azttdc","caseId":12415,"caseYear":2008,"caseNumber":113,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12415,"caseYear":2008,"caseNumber":113,"caseOffice":"1","caseType":"cv","caseTitle":"Porter
+        v. Thompson et al","dateFiled":"2008-04-18","natureOfSuit":"151","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12415","caseNumberFull":"1:2008cv00113"},"dateFiled":"2008-04-18","natureOfSuit":"151","caseNumberFull":"1:2008cv00113","caseOffice":"1","caseType":"cv","caseTitle":"Porter
+        v. Thompson et al"},{"courtId":"azttdc","caseId":12423,"caseYear":2008,"caseNumber":22,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12423,"caseYear":2008,"caseNumber":22,"caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Jordan","dateFiled":"2008-04-24","natureOfSuit":"196","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12423","caseNumberFull":"7:2008cv00022"},"dateFiled":"2008-04-24","natureOfSuit":"196","caseNumberFull":"7:2008cv00022","caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Jordan"},{"courtId":"azttdc","caseId":12426,"caseYear":2008,"caseNumber":25,"lastName":"Smith","firstName":"Betty","middleName":"
+        ","generation":" ","partyType":" ","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12426,"caseYear":2008,"caseNumber":25,"caseOffice":"7","caseType":"cv","caseTitle":"Green
+        v. Thomas","dateFiled":"2008-04-24","natureOfSuit":"190","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12426","caseNumberFull":"7:2008cv00025"},"dateFiled":"2008-04-24","natureOfSuit":"190","caseNumberFull":"7:2008cv00025","caseOffice":"7","caseType":"cv","caseTitle":"Green
+        v. Thomas"},{"courtId":"azttdc","caseId":12432,"caseYear":2008,"caseNumber":27,"lastName":"Smith","firstName":"JJ","middleName":"Fingleheimer","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12432,"caseYear":2008,"caseNumber":27,"caseOffice":"7","caseType":"cv","caseTitle":"Thompson
+        v. Ritter","dateFiled":"2008-04-25","natureOfSuit":"315","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12432","caseNumberFull":"7:2008cv00027"},"dateFiled":"2008-04-25","natureOfSuit":"315","caseNumberFull":"7:2008cv00027","caseOffice":"7","caseType":"cv","caseTitle":"Thompson
+        v. Ritter"},{"courtId":"azttdc","caseId":12438,"caseYear":2008,"caseNumber":126,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12438,"caseYear":2008,"caseNumber":126,"caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. Wilbur","dateFiled":"2008-05-01","natureOfSuit":"120","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12438","caseNumberFull":"0:2008cv00126"},"dateFiled":"2008-05-01","natureOfSuit":"120","caseNumberFull":"0:2008cv00126","caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. Wilbur"},{"courtId":"azttdc","caseId":12444,"caseYear":2008,"caseNumber":29,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12444,"caseYear":2008,"caseNumber":29,"caseOffice":"7","caseType":"cv","caseTitle":"Johnson
+        v. Harrison","dateFiled":"2008-05-01","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12444","caseNumberFull":"7:2008cv00029"},"dateFiled":"2008-05-01","natureOfSuit":"210","caseNumberFull":"7:2008cv00029","caseOffice":"7","caseType":"cv","caseTitle":"Johnson
+        v. Harrison"},{"courtId":"azttdc","caseId":12446,"caseYear":2008,"caseNumber":30,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12446,"caseYear":2008,"caseNumber":30,"caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Smith et al","dateFiled":"2008-05-02","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12446","caseNumberFull":"7:2008cv00030"},"dateFiled":"2008-05-02","natureOfSuit":"210","caseNumberFull":"7:2008cv00030","caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Smith et al"},{"courtId":"azttdc","caseId":12449,"caseYear":2008,"caseNumber":17,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12449,"caseYear":2008,"caseNumber":17,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Thompson et al - Ken Polk","dateFiled":"2008-05-02","dateTermed":"2008-05-02","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-05-02","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12449","caseNumberFull":"7:2008cr00017"},"dateFiled":"2008-05-02","dateTermed":"2008-05-02","natureOfSuit":"1","caseNumberFull":"7:2008cr00017","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Thompson et al - Ken Polk"},{"courtId":"azttdc","caseId":12451,"caseYear":2008,"caseNumber":18,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12451,"caseYear":2008,"caseNumber":18,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Jordan et al - Keith Jordan","dateFiled":"2008-05-02","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12451","caseNumberFull":"7:2008cr00018"},"dateFiled":"2008-05-02","natureOfSuit":"1","caseNumberFull":"7:2008cr00018","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Jordan et al - Keith Jordan"},{"courtId":"azttdc","caseId":12458,"caseYear":2008,"caseNumber":31,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12458,"caseYear":2008,"caseNumber":31,"caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Thompson et al","dateFiled":"2008-05-02","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12458","caseNumberFull":"7:2008cv00031"},"dateFiled":"2008-05-02","natureOfSuit":"210","caseNumberFull":"7:2008cv00031","caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Thompson et al"},{"courtId":"azttdc","caseId":12461,"caseYear":2008,"caseNumber":19,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12461,"caseYear":2008,"caseNumber":19,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Jordan et al - Albert Henderson","dateFiled":"2008-05-02","dateTermed":"2008-05-02","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-05-02","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12461","caseNumberFull":"7:2008cr00019"},"dateFiled":"2008-05-02","dateTermed":"2008-05-02","natureOfSuit":"1","caseNumberFull":"7:2008cr00019","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Jordan et al - Albert Henderson"},{"courtId":"azttdc","caseId":12463,"caseYear":2008,"caseNumber":32,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12463,"caseYear":2008,"caseNumber":32,"caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Jordan et al","dateFiled":"2008-05-02","natureOfSuit":"160","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12463","caseNumberFull":"7:2008cv00032"},"dateFiled":"2008-05-02","natureOfSuit":"160","caseNumberFull":"7:2008cv00032","caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Jordan et al"},{"courtId":"azttdc","caseId":12464,"caseYear":2008,"caseNumber":33,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12464,"caseYear":2008,"caseNumber":33,"caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Jordan et al","dateFiled":"2008-05-02","natureOfSuit":"290","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12464","caseNumberFull":"7:2008cv00033"},"dateFiled":"2008-05-02","natureOfSuit":"290","caseNumberFull":"7:2008cv00033","caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Jordan et al"},{"courtId":"azttdc","caseId":12464,"caseYear":2008,"caseNumber":33,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":12464,"caseYear":2008,"caseNumber":33,"caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Jordan et al","dateFiled":"2008-05-02","natureOfSuit":"290","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12464","caseNumberFull":"7:2008cv00033"},"dateFiled":"2008-05-02","natureOfSuit":"290","caseNumberFull":"7:2008cv00033","caseOffice":"7","caseType":"cv","caseTitle":"Jordan
+        v. Jordan et al"},{"courtId":"azttdc","caseId":12507,"caseYear":2008,"caseNumber":21,"lastName":"Smith","firstName":"Henry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12507,"caseYear":2008,"caseNumber":21,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Lipman - Henry Smith","dateFiled":"2008-05-08","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12507","caseNumberFull":"7:2008cr00021"},"dateFiled":"2008-05-08","natureOfSuit":"1","caseNumberFull":"7:2008cr00021","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Lipman - Henry Smith"},{"courtId":"azttdc","caseId":12510,"caseYear":2008,"caseNumber":25,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12510,"caseYear":2008,"caseNumber":25,"caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Thompson et al - Bernard Smith","dateFiled":"2008-05-08","dateTermed":"2008-11-05","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-11-05","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12510","caseNumberFull":"0:2008cr00025"},"dateFiled":"2008-05-08","dateTermed":"2008-11-05","natureOfSuit":"1","caseNumberFull":"0:2008cr00025","caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Thompson et al - Bernard Smith"},{"courtId":"azttdc","caseId":12514,"caseYear":2008,"caseNumber":26,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12514,"caseYear":2008,"caseNumber":26,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Daphne Johnson","dateFiled":"2008-05-09","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12514","caseNumberFull":"7:2008cr00026"},"dateFiled":"2008-05-09","natureOfSuit":"1","caseNumberFull":"7:2008cr00026","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Daphne Johnson"},{"courtId":"azttdc","caseId":12515,"caseYear":2008,"caseNumber":26,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":12515,"caseYear":2008,"caseNumber":26,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Keith Jordan","dateFiled":"2008-05-09","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?12515","caseNumberFull":"7:2008cr00026"},"dateFiled":"2008-05-09","natureOfSuit":"1","caseNumberFull":"7:2008cr00026","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Keith Jordan"},{"courtId":"azttdc","caseId":1297,"caseYear":2005,"caseNumber":59012,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1297,"caseYear":2005,"caseNumber":59012,"caseOffice":"9","caseType":"cv","caseTitle":"AAA
+        Towing v. Vanderhoff Realty","dateFiled":"2006-01-12","natureOfSuit":"140","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1297","caseNumberFull":"9:2005cv59012"},"dateFiled":"2006-01-12","natureOfSuit":"140","caseNumberFull":"9:2005cv59012","caseOffice":"9","caseType":"cv","caseTitle":"AAA
+        Towing v. Vanderhoff Realty"},{"courtId":"azttdc","caseId":13548,"caseYear":2008,"caseNumber":118,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":13548,"caseYear":2008,"caseNumber":118,"caseOffice":"1","caseType":"cv","caseTitle":"Thomas
+        v. Roads","dateFiled":"2008-05-21","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?13548","caseNumberFull":"1:2008cv00118"},"dateFiled":"2008-05-21","natureOfSuit":"210","caseNumberFull":"1:2008cv00118","caseOffice":"1","caseType":"cv","caseTitle":"Thomas
+        v. Roads"},{"courtId":"azttdc","caseId":13548,"caseYear":2008,"caseNumber":118,"lastName":"Smith","firstName":"Clarence","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":13548,"caseYear":2008,"caseNumber":118,"caseOffice":"1","caseType":"cv","caseTitle":"Thomas
+        v. Roads","dateFiled":"2008-05-21","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?13548","caseNumberFull":"1:2008cv00118"},"dateFiled":"2008-05-21","natureOfSuit":"210","caseNumberFull":"1:2008cv00118","caseOffice":"1","caseType":"cv","caseTitle":"Thomas
+        v. Roads"},{"courtId":"azttdc","caseId":13551,"caseYear":2008,"caseNumber":42,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":13551,"caseYear":2008,"caseNumber":42,"caseOffice":"7","caseType":"cv","caseTitle":"Williams
+        v. Smith","dateFiled":"2008-05-21","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?13551","caseNumberFull":"7:2008cv00042"},"dateFiled":"2008-05-21","natureOfSuit":"210","caseNumberFull":"7:2008cv00042","caseOffice":"7","caseType":"cv","caseTitle":"Williams
+        v. Smith"},{"courtId":"azttdc","caseId":13561,"caseYear":2008,"caseNumber":44,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":13561,"caseYear":2008,"caseNumber":44,"caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. daniel","dateFiled":"2008-05-27","natureOfSuit":"196","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?13561","caseNumberFull":"7:2008cv00044"},"dateFiled":"2008-05-27","natureOfSuit":"196","caseNumberFull":"7:2008cv00044","caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. daniel"},{"courtId":"azttdc","caseId":13561,"caseYear":2008,"caseNumber":44,"lastName":"Smith","firstName":"John","middleName":"James","generation":"
+        ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":13561,"caseYear":2008,"caseNumber":44,"caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. daniel","dateFiled":"2008-05-27","natureOfSuit":"196","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?13561","caseNumberFull":"7:2008cv00044"},"dateFiled":"2008-05-27","natureOfSuit":"196","caseNumberFull":"7:2008cv00044","caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. daniel"},{"courtId":"azttdc","caseId":13562,"caseYear":2008,"caseNumber":45,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":13562,"caseYear":2008,"caseNumber":45,"caseOffice":"7","caseType":"cv","caseTitle":"Brown
+        v. Thompson","dateFiled":"2008-05-27","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?13562","caseNumberFull":"7:2008cv00045"},"dateFiled":"2008-05-27","natureOfSuit":"210","caseNumberFull":"7:2008cv00045","caseOffice":"7","caseType":"cv","caseTitle":"Brown
+        v. Thompson"},{"courtId":"azttdc","caseId":13565,"caseYear":2008,"caseNumber":46,"lastName":"Smith","firstName":"Betty","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":13565,"caseYear":2008,"caseNumber":46,"caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. Thomas","dateFiled":"2008-05-27","natureOfSuit":"220","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?13565","caseNumberFull":"7:2008cv00046"},"dateFiled":"2008-05-27","natureOfSuit":"220","caseNumberFull":"7:2008cv00046","caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. Thomas"},{"courtId":"azttdc","caseId":1402,"caseYear":2006,"caseNumber":3333,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1402,"caseYear":2006,"caseNumber":3333,"caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Jones","dateFiled":"2006-01-01","dateTermed":"2006-01-24","natureOfSuit":"830","jurisdictionType":"Civil","effectiveDateClosed":"2006-01-24","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1402","caseNumberFull":"2:2006cv03333"},"dateFiled":"2006-01-01","dateTermed":"2006-01-24","natureOfSuit":"830","caseNumberFull":"2:2006cv03333","caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Jones"},{"courtId":"azttdc","caseId":1440,"caseYear":2006,"caseNumber":43434,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":1440,"caseYear":2006,"caseNumber":43434,"caseOffice":"0","caseType":"po","caseTitle":"USA
+        v. Smith - Bernard Smith","dateFiled":"2006-01-03","dateTermed":"2006-01-03","jurisdictionType":"Criminal","effectiveDateClosed":"2006-01-03","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1440","caseNumberFull":"0:2006po43434"},"dateFiled":"2006-01-03","dateTermed":"2006-01-03","caseNumberFull":"0:2006po43434","caseOffice":"0","caseType":"po","caseTitle":"USA
+        v. Smith - Bernard Smith"},{"courtId":"azttdc","caseId":1495,"caseYear":2006,"caseNumber":112,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1495,"caseYear":2006,"caseNumber":112,"caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Jones","dateFiled":"2006-01-23","natureOfSuit":"550","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1495","caseNumberFull":"2:2006cv00112"},"dateFiled":"2006-01-23","natureOfSuit":"550","caseNumberFull":"2:2006cv00112","caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Jones"},{"courtId":"azttdc","caseId":1497,"caseYear":1999,"caseNumber":3,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":1497,"caseYear":1999,"caseNumber":3,"caseOffice":"0","caseType":"mj","caseTitle":"USA
+        v. Smith - Sandy Smith","dateFiled":"2006-01-23","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1497","caseNumberFull":"0:1999mj00003"},"dateFiled":"2006-01-23","natureOfSuit":"1","caseNumberFull":"0:1999mj00003","caseOffice":"0","caseType":"mj","caseTitle":"USA
+        v. Smith - Sandy Smith"},{"courtId":"azttdc","caseId":1500,"caseYear":1999,"caseNumber":3,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":1500,"caseYear":1999,"caseNumber":3,"caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith - Bernard Smith","dateFiled":"2006-01-23","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1500","caseNumberFull":"0:1999cr00003"},"dateFiled":"2006-01-23","natureOfSuit":"1","caseNumberFull":"0:1999cr00003","caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith - Bernard Smith"},{"courtId":"azttdc","caseId":1523,"caseYear":1999,"caseNumber":4,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":1523,"caseYear":1999,"caseNumber":4,"caseOffice":"0","caseType":"mj","caseTitle":"USA
+        v. Jones et al - Sandy Smith","dateFiled":"2006-01-23","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1523","caseNumberFull":"0:1999mj00004"},"dateFiled":"2006-01-23","caseNumberFull":"0:1999mj00004","caseOffice":"0","caseType":"mj","caseTitle":"USA
+        v. Jones et al - Sandy Smith"},{"courtId":"azttdc","caseId":1569,"caseYear":2005,"caseNumber":59202,"lastName":"Smith","firstName":"John","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1569,"caseYear":2005,"caseNumber":59202,"caseOffice":"0","caseType":"cv","caseTitle":"Cunningham
+        v. We Tow Anything","dateFiled":"2005-12-16","dateReopened":"2006-01-24","natureOfSuit":"190","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1569","caseNumberFull":"0:2005cv59202"},"dateFiled":"2005-12-16","dateReopened":"2006-01-24","natureOfSuit":"190","caseNumberFull":"0:2005cv59202","caseOffice":"0","caseType":"cv","caseTitle":"Cunningham
+        v. We Tow Anything"},{"courtId":"azttdc","caseId":1595,"caseYear":1999,"caseNumber":5,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":1595,"caseYear":1999,"caseNumber":5,"caseOffice":"0","caseType":"mj","caseTitle":"USA
+        v. Smith - Sandy Smith","dateFiled":"2005-01-24","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1595","caseNumberFull":"0:1999mj00005"},"dateFiled":"2005-01-24","caseNumberFull":"0:1999mj00005","caseOffice":"0","caseType":"mj","caseTitle":"USA
+        v. Smith - Sandy Smith"},{"courtId":"azttdc","caseId":1739,"caseYear":2006,"caseNumber":1702,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"condft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1739,"caseYear":2006,"caseNumber":1702,"caseOffice":"2","caseType":"cv","caseTitle":"Jeffries
+        v. Murphy","dateFiled":"2006-01-25","dateTermed":"2006-01-25","natureOfSuit":"150","jurisdictionType":"Civil","effectiveDateClosed":"2006-01-25","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1739","caseNumberFull":"2:2006cv01702"},"dateFiled":"2006-01-25","dateTermed":"2006-01-25","natureOfSuit":"150","caseNumberFull":"2:2006cv01702","caseOffice":"2","caseType":"cv","caseTitle":"Jeffries
+        v. Murphy"},{"courtId":"azttdc","caseId":18022,"caseYear":2008,"caseNumber":140,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18022,"caseYear":2008,"caseNumber":140,"caseOffice":"0","caseType":"cv","caseTitle":"Jordan
+        v. Smith","dateFiled":"2008-05-29","natureOfSuit":"160","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18022","caseNumberFull":"0:2008cv00140"},"dateFiled":"2008-05-29","natureOfSuit":"160","caseNumberFull":"0:2008cv00140","caseOffice":"0","caseType":"cv","caseTitle":"Jordan
+        v. Smith"},{"courtId":"azttdc","caseId":18022,"caseYear":2008,"caseNumber":140,"lastName":"Smith","firstName":"Bob","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18022,"caseYear":2008,"caseNumber":140,"caseOffice":"0","caseType":"cv","caseTitle":"Jordan
+        v. Smith","dateFiled":"2008-05-29","natureOfSuit":"160","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18022","caseNumberFull":"0:2008cv00140"},"dateFiled":"2008-05-29","natureOfSuit":"160","caseNumberFull":"0:2008cv00140","caseOffice":"0","caseType":"cv","caseTitle":"Jordan
+        v. Smith"},{"courtId":"azttdc","caseId":18023,"caseYear":2008,"caseNumber":47,"lastName":"Smith","firstName":"John","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18023,"caseYear":2008,"caseNumber":47,"caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. Thomas","dateFiled":"2008-05-29","dateTermed":"2008-05-29","dateReopened":"2008-05-29","natureOfSuit":"245","jurisdictionType":"Civil","effectiveDateClosed":"2008-05-29","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18023","caseNumberFull":"7:2008cv00047"},"dateFiled":"2008-05-29","dateTermed":"2008-05-29","dateReopened":"2008-05-29","natureOfSuit":"245","caseNumberFull":"7:2008cv00047","caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. Thomas"},{"courtId":"azttdc","caseId":18025,"caseYear":2008,"caseNumber":121,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18025,"caseYear":2008,"caseNumber":121,"caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Thomas - Jay Thomas","dateFiled":"2008-05-29","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18025","caseNumberFull":"0:2008cr00121"},"dateFiled":"2008-05-29","natureOfSuit":"1","caseNumberFull":"0:2008cr00121","caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Thomas - Jay Thomas"}],"masterCase":null}'
+  recorded_at: Wed, 03 Nov 2021 12:45:30 GMT
+- request:
+    method: post
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/find?page=2
+    body:
+      encoding: UTF-8
+      string: '{"lastName":"Smith"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - m08W303JLNUlmvkXTdFvcpWQvPlMzVWkj8CQVRDeevv4Gx8pp6d8GX1CTgmTh6c3O8TWOdzi02YuV0UInB2kiFuGORcwIkIv42eYb5j8oDQCOqCrtwb6s9gihASi2l1b
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Wed, 03 Nov 2021 12:45:31 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":{"transactionDate":"2021-11-03T07:45:31.380-0500","billablePages":0,"loginId":"<LOGIN>","clientCode":"","firmId":"","search":"All
+        Courts; Name Smith; Page: 3","description":"All Court Types Party Search","csoId":4697705,"reportId":"3aebc2ea-a7d3-49d9-85fc-4f3dd1ab9ad0","searchFee":".00"},"pageInfo":{"number":2,"size":54,"totalPages":101,"totalElements":5401,"numberOfElements":54,"first":false,"last":false},"content":[{"courtId":"azttdc","caseId":18029,"caseYear":2008,"caseNumber":456,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18029,"caseYear":2008,"caseNumber":456,"caseOffice":"1","caseType":"cv","caseTitle":"Johnson
+        v. Smith","dateFiled":"2008-05-30","dateTermed":"2008-05-30","natureOfSuit":"210","jurisdictionType":"Civil","effectiveDateClosed":"2008-05-30","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18029","caseNumberFull":"1:2008cv00456"},"dateFiled":"2008-05-30","dateTermed":"2008-05-30","natureOfSuit":"210","caseNumberFull":"1:2008cv00456","caseOffice":"1","caseType":"cv","caseTitle":"Johnson
+        v. Smith"},{"courtId":"azttdc","caseId":18033,"caseYear":2008,"caseNumber":141,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18033,"caseYear":2008,"caseNumber":141,"caseOffice":"0","caseType":"cv","caseTitle":"Johnson
+        v. Paulson et al","dateFiled":"2008-06-02","natureOfSuit":"220","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18033","caseNumberFull":"0:2008cv00141"},"dateFiled":"2008-06-02","natureOfSuit":"220","caseNumberFull":"0:2008cv00141","caseOffice":"0","caseType":"cv","caseTitle":"Johnson
+        v. Paulson et al"},{"courtId":"azttdc","caseId":18035,"caseYear":2008,"caseNumber":37,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18035,"caseYear":2008,"caseNumber":37,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Daphne Johnson","dateFiled":"2008-06-02","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18035","caseNumberFull":"7:2008cr00037"},"dateFiled":"2008-06-02","natureOfSuit":"1","caseNumberFull":"7:2008cr00037","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Daphne Johnson"},{"courtId":"azttdc","caseId":18037,"caseYear":2008,"caseNumber":109,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18037,"caseYear":2008,"caseNumber":109,"caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Williams","dateFiled":"2008-06-02","natureOfSuit":"110","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18037","caseNumberFull":"2:2008cv00109"},"dateFiled":"2008-06-02","natureOfSuit":"110","caseNumberFull":"2:2008cv00109","caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Williams"},{"courtId":"azttdc","caseId":18040,"caseYear":2008,"caseNumber":38,"lastName":"Smith","firstName":"JJ","middleName":"Fingleheimer","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18040,"caseYear":2008,"caseNumber":38,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Bob Jones","dateFiled":"2008-06-02","dateTermed":"2008-06-02","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-06-02","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18040","caseNumberFull":"7:2008cr00038"},"dateFiled":"2008-06-02","dateTermed":"2008-06-02","natureOfSuit":"1","caseNumberFull":"7:2008cr00038","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Johnson et al - Bob Jones"},{"courtId":"azttdc","caseId":18043,"caseYear":2008,"caseNumber":39,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18043,"caseYear":2008,"caseNumber":39,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Allen et al - Barry Smith","dateFiled":"2008-06-02","dateTermed":"2008-06-02","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-06-02","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18043","caseNumberFull":"7:2008cr00039"},"dateFiled":"2008-06-02","dateTermed":"2008-06-02","natureOfSuit":"1","caseNumberFull":"7:2008cr00039","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Allen et al - Barry Smith"},{"courtId":"azttdc","caseId":18086,"caseYear":2008,"caseNumber":52,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18086,"caseYear":2008,"caseNumber":52,"caseOffice":"7","caseType":"cv","caseTitle":"v.
+        James et al","dateFiled":"2008-06-02","natureOfSuit":"220","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18086","caseNumberFull":"7:2008cv00052"},"dateFiled":"2008-06-02","natureOfSuit":"220","caseNumberFull":"7:2008cv00052","caseOffice":"7","caseType":"cv","caseTitle":"v.
+        James et al"},{"courtId":"azttdc","caseId":18093,"caseYear":2008,"caseNumber":53,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18093,"caseYear":2008,"caseNumber":53,"caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Simon","dateFiled":"2008-06-03","natureOfSuit":"240","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18093","caseNumberFull":"7:2008cv00053"},"dateFiled":"2008-06-03","natureOfSuit":"240","caseNumberFull":"7:2008cv00053","caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Simon"},{"courtId":"azttdc","caseId":18094,"caseYear":2008,"caseNumber":110,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18094,"caseYear":2008,"caseNumber":110,"caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Williams","dateFiled":"2008-06-02","natureOfSuit":"110","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18094","caseNumberFull":"2:2008cv00110"},"dateFiled":"2008-06-02","natureOfSuit":"110","caseNumberFull":"2:2008cv00110","caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Williams"},{"courtId":"azttdc","caseId":18100,"caseYear":2008,"caseNumber":54,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18100,"caseYear":2008,"caseNumber":54,"caseOffice":"7","caseType":"cv","caseTitle":"Billings
+        v. Simon et al","dateFiled":"2008-06-03","natureOfSuit":"310","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18100","caseNumberFull":"7:2008cv00054"},"dateFiled":"2008-06-03","natureOfSuit":"310","caseNumberFull":"7:2008cv00054","caseOffice":"7","caseType":"cv","caseTitle":"Billings
+        v. Simon et al"},{"courtId":"azttdc","caseId":18106,"caseYear":2008,"caseNumber":55,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18106,"caseYear":2008,"caseNumber":55,"caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Johnson et al","dateFiled":"2008-06-03","natureOfSuit":"220","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18106","caseNumberFull":"7:2008cv00055"},"dateFiled":"2008-06-03","natureOfSuit":"220","caseNumberFull":"7:2008cv00055","caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Johnson et al"},{"courtId":"azttdc","caseId":18106,"caseYear":2008,"caseNumber":55,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18106,"caseYear":2008,"caseNumber":55,"caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Johnson et al","dateFiled":"2008-06-03","natureOfSuit":"220","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18106","caseNumberFull":"7:2008cv00055"},"dateFiled":"2008-06-03","natureOfSuit":"220","caseNumberFull":"7:2008cv00055","caseOffice":"7","caseType":"cv","caseTitle":"Thomas
+        v. Johnson et al"},{"courtId":"azttdc","caseId":18109,"caseYear":2008,"caseNumber":122,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18109,"caseYear":2008,"caseNumber":122,"caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Thompson et al - Barry Smith","dateFiled":"2008-06-03","dateTermed":"2008-06-03","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-06-03","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18109","caseNumberFull":"0:2008cr00122"},"dateFiled":"2008-06-03","dateTermed":"2008-06-03","natureOfSuit":"1","caseNumberFull":"0:2008cr00122","caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Thompson et al - Barry Smith"},{"courtId":"azttdc","caseId":18159,"caseYear":2008,"caseNumber":43,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18159,"caseYear":2008,"caseNumber":43,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. tomas et al - Barry Smith","dateFiled":"2008-06-04","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18159","caseNumberFull":"7:2008cr00043"},"dateFiled":"2008-06-04","natureOfSuit":"1","caseNumberFull":"7:2008cr00043","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. tomas et al - Barry Smith"},{"courtId":"azttdc","caseId":18159,"caseYear":2008,"caseNumber":43,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18159,"caseYear":2008,"caseNumber":43,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. tomas et al - Barry Smith","dateFiled":"2008-06-04","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18159","caseNumberFull":"7:2008cr00043"},"dateFiled":"2008-06-04","natureOfSuit":"1","caseNumberFull":"7:2008cr00043","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. tomas et al - Barry Smith"},{"courtId":"azttdc","caseId":18160,"caseYear":2008,"caseNumber":43,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18160,"caseYear":2008,"caseNumber":43,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. tomas et al - Bernard Miller","dateFiled":"2008-06-04","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18160","caseNumberFull":"7:2008cr00043"},"dateFiled":"2008-06-04","natureOfSuit":"1","caseNumberFull":"7:2008cr00043","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. tomas et al - Bernard Miller"},{"courtId":"azttdc","caseId":18165,"caseYear":2008,"caseNumber":56,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18165,"caseYear":2008,"caseNumber":56,"caseOffice":"7","caseType":"mj","caseTitle":"USA
+        v. Jacobsen et al - Graham Kelly","dateFiled":"2008-06-04","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18165","caseNumberFull":"7:2008mj00056"},"dateFiled":"2008-06-04","natureOfSuit":"1","caseNumberFull":"7:2008mj00056","caseOffice":"7","caseType":"mj","caseTitle":"USA
+        v. Jacobsen et al - Graham Kelly"},{"courtId":"azttdc","caseId":18166,"caseYear":2008,"caseNumber":142,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18166,"caseYear":2008,"caseNumber":142,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Tyler - Graham Kelly","dateFiled":"2008-06-04","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18166","caseNumberFull":"7:2008cr00142"},"dateFiled":"2008-06-04","natureOfSuit":"1","caseNumberFull":"7:2008cr00142","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Tyler - Graham Kelly"},{"courtId":"azttdc","caseId":18196,"caseYear":2008,"caseNumber":59,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18196,"caseYear":2008,"caseNumber":59,"caseOffice":"7","caseType":"cv","caseTitle":"Jones
+        v. James","dateFiled":"2008-06-09","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18196","caseNumberFull":"7:2008cv00059"},"dateFiled":"2008-06-09","natureOfSuit":"210","caseNumberFull":"7:2008cv00059","caseOffice":"7","caseType":"cv","caseTitle":"Jones
+        v. James"},{"courtId":"azttdc","caseId":1828,"caseYear":2006,"caseNumber":123,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1828,"caseYear":2006,"caseNumber":123,"caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Barnhardt","dateFiled":"2006-01-25","natureOfSuit":"863","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1828","caseNumberFull":"2:2006cv00123"},"dateFiled":"2006-01-25","natureOfSuit":"863","caseNumberFull":"2:2006cv00123","caseOffice":"2","caseType":"cv","caseTitle":"Smith
+        v. Barnhardt"},{"courtId":"azttdc","caseId":18286,"caseYear":2008,"caseNumber":61,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":18286,"caseYear":2008,"caseNumber":61,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Jones et al - Benjamin Johnson","dateFiled":"2008-07-23","dateTermed":"2008-07-23","natureOfSuit":"1","jurisdictionType":"Criminal","effectiveDateClosed":"2008-07-23","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18286","caseNumberFull":"7:2008cr00061"},"dateFiled":"2008-07-23","dateTermed":"2008-07-23","natureOfSuit":"1","caseNumberFull":"7:2008cr00061","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Jones et al - Benjamin Johnson"},{"courtId":"azttdc","caseId":1830,"caseYear":2006,"caseNumber":2225,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pet","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1830,"caseYear":2006,"caseNumber":2225,"caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. USA","dateFiled":"2006-01-25","natureOfSuit":"510","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1830","caseNumberFull":"0:2006cv02225"},"dateFiled":"2006-01-25","natureOfSuit":"510","caseNumberFull":"0:2006cv02225","caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. USA"},{"courtId":"azttdc","caseId":18398,"caseYear":2008,"caseNumber":82,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18398,"caseYear":2008,"caseNumber":82,"caseOffice":"7","caseType":"cv","caseTitle":"Jones
+        v. Porter","dateFiled":"2008-08-19","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18398","caseNumberFull":"7:2008cv00082"},"dateFiled":"2008-08-19","natureOfSuit":"210","caseNumberFull":"7:2008cv00082","caseOffice":"7","caseType":"cv","caseTitle":"Jones
+        v. Porter"},{"courtId":"azttdc","caseId":18408,"caseYear":2008,"caseNumber":87,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18408,"caseYear":2008,"caseNumber":87,"caseOffice":"7","caseType":"cv","caseTitle":"Jones
+        v. Smith","dateFiled":"2008-08-19","natureOfSuit":"196","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18408","caseNumberFull":"7:2008cv00087"},"dateFiled":"2008-08-19","natureOfSuit":"196","caseNumberFull":"7:2008cv00087","caseOffice":"7","caseType":"cv","caseTitle":"Jones
+        v. Smith"},{"courtId":"azttdc","caseId":18450,"caseYear":2008,"caseNumber":100,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18450,"caseYear":2008,"caseNumber":100,"caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. Johns","dateFiled":"2008-08-22","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18450","caseNumberFull":"7:2008cv00100"},"dateFiled":"2008-08-22","natureOfSuit":"210","caseNumberFull":"7:2008cv00100","caseOffice":"7","caseType":"cv","caseTitle":"James
+        v. Johns"},{"courtId":"azttdc","caseId":18520,"caseYear":2008,"caseNumber":122,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18520,"caseYear":2008,"caseNumber":122,"caseOffice":"1","caseType":"cv","caseTitle":"Smith
+        v. Thompson","dateFiled":"2008-08-22","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18520","caseNumberFull":"1:2008cv00122"},"dateFiled":"2008-08-22","natureOfSuit":"210","caseNumberFull":"1:2008cv00122","caseOffice":"1","caseType":"cv","caseTitle":"Smith
+        v. Thompson"},{"courtId":"azttdc","caseId":18520,"caseYear":2008,"caseNumber":122,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":18520,"caseYear":2008,"caseNumber":122,"caseOffice":"1","caseType":"cv","caseTitle":"Smith
+        v. Thompson","dateFiled":"2008-08-22","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?18520","caseNumberFull":"1:2008cv00122"},"dateFiled":"2008-08-22","natureOfSuit":"210","caseNumberFull":"1:2008cv00122","caseOffice":"1","caseType":"cv","caseTitle":"Smith
+        v. Thompson"},{"courtId":"azttdc","caseId":1897,"caseYear":2006,"caseNumber":2215,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1897,"caseYear":2006,"caseNumber":2215,"caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. USA","dateFiled":"2006-01-26","natureOfSuit":"861","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1897","caseNumberFull":"0:2006cv02215"},"dateFiled":"2006-01-26","natureOfSuit":"861","caseNumberFull":"0:2006cv02215","caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. USA"},{"courtId":"azttdc","caseId":1899,"caseYear":2006,"caseNumber":2216,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1899,"caseYear":2006,"caseNumber":2216,"caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. USA","dateFiled":"2006-01-26","dateReopened":"2006-02-05","natureOfSuit":"861","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1899","caseNumberFull":"0:2006cv02216"},"dateFiled":"2006-01-26","dateReopened":"2006-02-05","natureOfSuit":"861","caseNumberFull":"0:2006cv02216","caseOffice":"0","caseType":"cv","caseTitle":"Smith
+        v. USA"},{"courtId":"azttdc","caseId":19097,"caseYear":2008,"caseNumber":2056,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":19097,"caseYear":2008,"caseNumber":2056,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thompson - William Thompson","dateFiled":"2008-08-22","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19097","caseNumberFull":"1:2008cr02056"},"dateFiled":"2008-08-22","natureOfSuit":"1","caseNumberFull":"1:2008cr02056","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thompson - William Thompson"},{"courtId":"azttdc","caseId":1910,"caseYear":1999,"caseNumber":22,"lastName":"Smith","firstName":"Sandy","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":1910,"caseYear":1999,"caseNumber":22,"caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith et al - Sandy Smith","dateFiled":"2006-01-26","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1910","caseNumberFull":"0:1999cr00022"},"dateFiled":"2006-01-26","natureOfSuit":"1","caseNumberFull":"0:1999cr00022","caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith et al - Sandy Smith"},{"courtId":"azttdc","caseId":19170,"caseYear":2008,"caseNumber":2056,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":19170,"caseYear":2008,"caseNumber":2056,"caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thompson - Cassidy James","dateFiled":"2008-08-22","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19170","caseNumberFull":"1:2008cr02056"},"dateFiled":"2008-08-22","caseNumberFull":"1:2008cr02056","caseOffice":"1","caseType":"cr","caseTitle":"USA
+        v. Thompson - Cassidy James"},{"courtId":"azttdc","caseId":1926,"caseYear":2006,"caseNumber":128,"lastName":"Smith","firstName":"Bernard","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":1926,"caseYear":2006,"caseNumber":128,"caseOffice":"2","caseType":"cv","caseTitle":"Jones
+        v. Smith","dateFiled":"2006-01-26","natureOfSuit":"190","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?1926","caseNumberFull":"2:2006cv00128"},"dateFiled":"2006-01-26","natureOfSuit":"190","caseNumberFull":"2:2006cv00128","caseOffice":"2","caseType":"cv","caseTitle":"Jones
+        v. Smith"},{"courtId":"azttdc","caseId":19903,"caseYear":2008,"caseNumber":106,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":19903,"caseYear":2008,"caseNumber":106,"caseOffice":"7","caseType":"cv","caseTitle":"North
+        v. Southeast (SE Towing","dateFiled":"2008-08-22","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19903","caseNumberFull":"7:2008cv00106"},"dateFiled":"2008-08-22","natureOfSuit":"210","caseNumberFull":"7:2008cv00106","caseOffice":"7","caseType":"cv","caseTitle":"North
+        v. Southeast (SE Towing"},{"courtId":"azttdc","caseId":19903,"caseYear":2008,"caseNumber":106,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":19903,"caseYear":2008,"caseNumber":106,"caseOffice":"7","caseType":"cv","caseTitle":"North
+        v. Southeast (SE Towing","dateFiled":"2008-08-22","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?19903","caseNumberFull":"7:2008cv00106"},"dateFiled":"2008-08-22","natureOfSuit":"210","caseNumberFull":"7:2008cv00106","caseOffice":"7","caseType":"cv","caseTitle":"North
+        v. Southeast (SE Towing"},{"courtId":"azttdc","caseId":20667,"caseYear":2008,"caseNumber":107,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20667,"caseYear":2008,"caseNumber":107,"caseOffice":"7","caseType":"cv","caseTitle":"Brown
+        v. Jones","dateFiled":"2008-08-22","natureOfSuit":"190","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20667","caseNumberFull":"7:2008cv00107"},"dateFiled":"2008-08-22","natureOfSuit":"190","caseNumberFull":"7:2008cv00107","caseOffice":"7","caseType":"cv","caseTitle":"Brown
+        v. Jones"},{"courtId":"azttdc","caseId":20751,"caseYear":2008,"caseNumber":116,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20751,"caseYear":2008,"caseNumber":116,"caseOffice":"7","caseType":"cv","caseTitle":"Johnson
+        v. James","dateFiled":"2008-08-25","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20751","caseNumberFull":"7:2008cv00116"},"dateFiled":"2008-08-25","natureOfSuit":"210","caseNumberFull":"7:2008cv00116","caseOffice":"7","caseType":"cv","caseTitle":"Johnson
+        v. James"},{"courtId":"azttdc","caseId":20754,"caseYear":2008,"caseNumber":93,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":20754,"caseYear":2008,"caseNumber":93,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Porter - Cassidy James","dateFiled":"2008-08-25","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20754","caseNumberFull":"7:2008cr00093"},"dateFiled":"2008-08-25","caseNumberFull":"7:2008cr00093","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Porter - Cassidy James"},{"courtId":"azttdc","caseId":20799,"caseYear":2008,"caseNumber":128,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"pla","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20799,"caseYear":2008,"caseNumber":128,"caseOffice":"7","caseType":"cv","caseTitle":"Smith
+        v. Williams","dateFiled":"2008-08-26","natureOfSuit":"190","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20799","caseNumberFull":"7:2008cv00128"},"dateFiled":"2008-08-26","natureOfSuit":"190","caseNumberFull":"7:2008cv00128","caseOffice":"7","caseType":"cv","caseTitle":"Smith
+        v. Williams"},{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James","dateFiled":"2008-08-27","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20852","caseNumberFull":"7:2008cv00141"},"dateFiled":"2008-08-27","natureOfSuit":"210","caseNumberFull":"7:2008cv00141","caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James"},{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James","dateFiled":"2008-08-27","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20852","caseNumberFull":"7:2008cv00141"},"dateFiled":"2008-08-27","natureOfSuit":"210","caseNumberFull":"7:2008cv00141","caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James"},{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"lastName":"Smith","firstName":"JJ","middleName":"Jingleheimer","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James","dateFiled":"2008-08-27","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20852","caseNumberFull":"7:2008cv00141"},"dateFiled":"2008-08-27","natureOfSuit":"210","caseNumberFull":"7:2008cv00141","caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James"},{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"lastName":"Smith","firstName":"Ross","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20852,"caseYear":2008,"caseNumber":141,"caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James","dateFiled":"2008-08-27","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20852","caseNumberFull":"7:2008cv00141"},"dateFiled":"2008-08-27","natureOfSuit":"210","caseNumberFull":"7:2008cv00141","caseOffice":"7","caseType":"cv","caseTitle":"Johns
+        v. James"},{"courtId":"azttdc","caseId":20855,"caseYear":2008,"caseNumber":111,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":20855,"caseYear":2008,"caseNumber":111,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Miller et al - Anthony Jones","dateFiled":"2008-08-27","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20855","caseNumberFull":"7:2008cr00111"},"dateFiled":"2008-08-27","natureOfSuit":"1","caseNumberFull":"7:2008cr00111","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Miller et al - Anthony Jones"},{"courtId":"azttdc","caseId":20868,"caseYear":2008,"caseNumber":114,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":20868,"caseYear":2008,"caseNumber":114,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Miller et al - Don Porter","dateFiled":"2008-08-27","natureOfSuit":"1","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20868","caseNumberFull":"7:2008cr00114"},"dateFiled":"2008-08-27","natureOfSuit":"1","caseNumberFull":"7:2008cr00114","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Miller et al - Don Porter"},{"courtId":"azttdc","caseId":20911,"caseYear":2008,"caseNumber":118,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":20911,"caseYear":2008,"caseNumber":118,"caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Morgan - Brad Miller","dateFiled":"2008-08-29","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20911","caseNumberFull":"7:2008cr00118"},"dateFiled":"2008-08-29","caseNumberFull":"7:2008cr00118","caseOffice":"7","caseType":"cr","caseTitle":"USA
+        v. Morgan - Brad Miller"},{"courtId":"azttdc","caseId":20926,"caseYear":2008,"caseNumber":128,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":20926,"caseYear":2008,"caseNumber":128,"caseOffice":"1","caseType":"cv","caseTitle":"James
+        v. Johnson","dateFiled":"2008-09-02","natureOfSuit":"190","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20926","caseNumberFull":"1:2008cv00128"},"dateFiled":"2008-09-02","natureOfSuit":"190","caseNumberFull":"1:2008cv00128","caseOffice":"1","caseType":"cv","caseTitle":"James
+        v. Johnson"},{"courtId":"azttdc","caseId":20996,"caseYear":2008,"caseNumber":143,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":20996,"caseYear":2008,"caseNumber":143,"caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith - Barry Smith","dateFiled":"2008-09-04","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20996","caseNumberFull":"0:2008cr00143"},"dateFiled":"2008-09-04","caseNumberFull":"0:2008cr00143","caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith - Barry Smith"},{"courtId":"azttdc","caseId":20998,"caseYear":2008,"caseNumber":144,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":20998,"caseYear":2008,"caseNumber":144,"caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith - Barry Smith","dateFiled":"2008-09-04","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?20998","caseNumberFull":"0:2008cr00144"},"dateFiled":"2008-09-04","caseNumberFull":"0:2008cr00144","caseOffice":"0","caseType":"cr","caseTitle":"USA
+        v. Smith - Barry Smith"},{"courtId":"azttdc","caseId":21011,"caseYear":2008,"caseNumber":136,"lastName":"Smith","firstName":"Bradshaw","middleName":"
+        ","generation":" ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":21011,"caseYear":2008,"caseNumber":136,"caseOffice":"1","caseType":"cv","caseTitle":"James
+        v. Jones","dateFiled":"2008-09-08","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?21011","caseNumberFull":"1:2008cv00136"},"dateFiled":"2008-09-08","natureOfSuit":"210","caseNumberFull":"1:2008cv00136","caseOffice":"1","caseType":"cv","caseTitle":"James
+        v. Jones"},{"courtId":"azttdc","caseId":21011,"caseYear":2008,"caseNumber":136,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":21011,"caseYear":2008,"caseNumber":136,"caseOffice":"1","caseType":"cv","caseTitle":"James
+        v. Jones","dateFiled":"2008-09-08","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?21011","caseNumberFull":"1:2008cv00136"},"dateFiled":"2008-09-08","natureOfSuit":"210","caseNumberFull":"1:2008cv00136","caseOffice":"1","caseType":"cv","caseTitle":"James
+        v. Jones"},{"courtId":"azttdc","caseId":21012,"caseYear":2008,"caseNumber":137,"lastName":"Smith","firstName":"David","middleName":"Hugh","generation":"
+        ","partyType":"aty","partyRole":"aty","jurisdictionType":"Civil","courtCase":{"courtId":"azttdc","caseId":21012,"caseYear":2008,"caseNumber":137,"caseOffice":"1","caseType":"cv","caseTitle":"Kilton
+        v. Miller","dateFiled":"2008-09-08","natureOfSuit":"210","jurisdictionType":"Civil","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?21012","caseNumberFull":"1:2008cv00137"},"dateFiled":"2008-09-08","natureOfSuit":"210","caseNumberFull":"1:2008cv00137","caseOffice":"1","caseType":"cv","caseTitle":"Kilton
+        v. Miller"},{"courtId":"azttdc","caseId":21028,"caseYear":2008,"caseNumber":566,"lastName":"Smith","firstName":"Barry","middleName":"
+        ","generation":" ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":21028,"caseYear":2008,"caseNumber":566,"caseOffice":"2","caseType":"cr","caseTitle":"USA
+        v. Smith et al - Henry A Smith","dateFiled":"2008-09-08","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?21028","caseNumberFull":"2:2008cr00566"},"dateFiled":"2008-09-08","caseNumberFull":"2:2008cr00566","caseOffice":"2","caseType":"cr","caseTitle":"USA
+        v. Smith et al - Henry A Smith"},{"courtId":"azttdc","caseId":21028,"caseYear":2008,"caseNumber":566,"lastName":"Smith","firstName":"Henry","middleName":"A","generation":"
+        ","partyType":"pty","partyRole":"dft","jurisdictionType":"Criminal","courtCase":{"courtId":"azttdc","caseId":21028,"caseYear":2008,"caseNumber":566,"caseOffice":"2","caseType":"cr","caseTitle":"USA
+        v. Smith et al - Henry A Smith","dateFiled":"2008-09-08","jurisdictionType":"Criminal","caseLink":"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?21028","caseNumberFull":"2:2008cr00566"},"dateFiled":"2008-09-08","caseNumberFull":"2:2008cr00566","caseOffice":"2","caseType":"cr","caseTitle":"USA
+        v. Smith et al - Henry A Smith"}],"masterCase":null}'
+  recorded_at: Wed, 03 Nov 2021 12:45:31 GMT
+recorded_with: VCR 6.0.0
