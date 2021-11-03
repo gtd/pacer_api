@@ -21,6 +21,14 @@ Layout/LineLength:
     - lib/tasks/*
     - script/rails
 
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - spec/**/*
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
