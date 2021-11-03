@@ -4,36 +4,140 @@ require "pacer/authenticator"
 require "pacer/immediate/party_search"
 
 RSpec.describe Pacer::Immediate::PartySearch do
-  subject(:search) {
-    described_class.new(session, params)
-  }
+  subject(:search) { described_class.new(session, search_params) }
 
-  let(:session) {
-    Pacer::Authenticator
-      .new(PACER_LOGIN, PACER_PASSWORD, environment: :qa)
-      .authenticate
-  }
+  let(:session) { instance_double(Pacer::Session) }
+  let(:search_params) { { case_title: "Slartibartfast" } }
+  let(:response_document) { {} }
 
-  describe "fetch", :vcr do
-    subject(:result) { search.fetch }
+  describe "fetch" do
+    before do
+      allow(session).to receive(:post).and_return(response_document)
+    end
+
+    it "requests the first page by default" do
+      search.fetch
+
+      expect(session).to have_received(:post)
+        .with("parties/find?page=1", search_params)
+    end
+
+    it "requests the specified page" do
+      search.fetch(99)
+
+      expect(session).to have_received(:post)
+        .with("parties/find?page=99", search_params)
+    end
 
     context "when there are no results" do
-      let(:params) { { last_name: "Slartibartfast" } }
+      subject(:page) { search.fetch }
+
+      let(:response_document) {
+        {
+          receipt: {
+            transaction_date: Time.new(2021, 10, 29, 10, 15, 40.877, "-05:00"),
+            billable_pages: 1,
+            login_id: "<LOGIN>",
+            client_code: "",
+            firm_id: "",
+            search: "All Courts; Name Slartibartfast; Page: 2",
+            description: "All Court Types Party Search",
+            cso_id: 4697705,
+            report_id: "4777bfa5-cc43-4962-be66-8520098aa2d0",
+            search_fee: ".10"
+          },
+          page_info: {
+            number: 1,
+            size: 54,
+            total_pages: 1,
+            total_elements: 4,
+            number_of_elements: 0,
+            first: false,
+            last: true
+          },
+          content: [],
+          master_case: nil
+        }
+      }
 
       it "exposes result metadata" do
-        expect(result).to have_attributes(
+        expect(page).to have_attributes(
           page: 1,
           total_pages: 1,
           last?: true
         )
       end
+
+      it "has no parties" do
+        expect(page.parties).to eq([])
+      end
     end
 
     context "when there are results" do
-      let(:params) { { last_name: "Smith" } }
+      subject(:page) { search.fetch }
+
+      let(:response_document) {
+        {
+          receipt: {
+            transaction_date: Time.new(2021, 10, 29, 10, 15, 33.279, "-05:00"),
+            billable_pages: 1,
+            login_id: "<LOGIN>",
+            client_code: "",
+            firm_id: "",
+            search: "All Courts; Name Smith; Page: 2",
+            description: "All Court Types Party Search",
+            cso_id: 4697705,
+            report_id: "9c4a8e55-6c7f-48df-9f6c-0fb22ec7e507",
+            search_fee: ".10"
+          },
+          page_info: {
+            number: 1,
+            size: 54,
+            total_pages: 101,
+            total_elements: 5401,
+            number_of_elements: 54,
+            first: false,
+            last: false
+          },
+          content: [{
+            court_id: "azttdc",
+            case_id: 12153,
+            case_year: 2005,
+            case_number: 1234,
+            last_name: "Smith",
+            first_name: "Henry",
+            middle_name: " ",
+            generation: " ",
+            party_type: "pty",
+            party_role: "dft",
+            jurisdiction_type: "Civil",
+            court_case: {
+              court_id: "azttdc",
+              case_id: 12153,
+              case_year: 2005,
+              case_number: 1234,
+              case_office: "1",
+              case_type: "cv",
+              case_title: "v. Thomas et al",
+              date_filed: Date.new(2008, 4, 9),
+              nature_of_suit: "190",
+              jurisdiction_type: "Civil",
+              case_link: "https://ecf.tc1d.aztc.uscourts.gov/blah",
+              case_number_full: "1:2005cv01234"
+            },
+            nature_of_suit: "190",
+            date_filed: Date.new(2008, 4, 9),
+            case_number_full: "1:2005cv01234",
+            case_office: "1",
+            case_type: "cv",
+            case_title: "v. Thomas et al"
+          }],
+          master_case: nil
+        }
+      }
 
       it "exposes result metadata" do
-        expect(result).to have_attributes(
+        expect(page).to have_attributes(
           page: 1,
           total_pages: 101,
           last?: false
@@ -41,7 +145,7 @@ RSpec.describe Pacer::Immediate::PartySearch do
       end
 
       it "returns info for each party" do
-        expect(result.parties.first).to have_attributes(
+        expect(page.parties.first).to have_attributes(
           court_id: "azttdc",
           case_id: 12153,
           case_year: 2005,
@@ -63,7 +167,7 @@ RSpec.describe Pacer::Immediate::PartySearch do
       end
 
       it "returns court case info" do
-        expect(result.parties.first.court_case).to have_attributes(
+        expect(page.parties.first.court_case).to have_attributes(
           court_id: "azttdc",
           case_id: 12153,
           case_year: 2005,
@@ -74,29 +178,8 @@ RSpec.describe Pacer::Immediate::PartySearch do
           date_filed: Date.new(2008, 4, 9),
           nature_of_suit: "190",
           jurisdiction_type: "Civil",
-          case_link: match(%r{\Ahttps://ecf.tc1d.aztc.uscourts.gov}),
+          case_link: "https://ecf.tc1d.aztc.uscourts.gov/blah",
           case_number_full: "1:2005cv01234"
-        )
-      end
-    end
-
-    context "when requesting a subsequent page" do
-      subject(:result) { search.fetch(2) }
-
-      let(:params) { { last_name: "Smith" } }
-
-      it "exposes result metadata" do
-        expect(result).to have_attributes(
-          page: 2,
-          total_pages: 101,
-          last?: false
-        )
-      end
-
-      it "returns info for each party" do
-        expect(result.parties.first).to have_attributes(
-          case_id: 18029,
-          case_title: "Johnson v. Smith"
         )
       end
     end
