@@ -1,0 +1,48 @@
+inherit_from:
+  - ../.rubocop.yml
+require:
+  - rubocop-rspec
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - integration/**/*
+
+RSpec/ExampleLength:
+  Enabled: false
+
+# Don't see a need to add the same 3 level nested prefix to every spec path.
+RSpec/FilePath:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - integration/**/*
+
+Style/BlockDelimiters:
+  IgnoredMethods:
+    - filter_sensitive_data
+    - it
+
+# This is useful in specs where you want to check that an action has no side-
+# effects when an exception is raised.
+Style/RescueModifier:
+  Enabled: false
+
+# Turn on these new ones by default
+RSpec/ExcessiveDocstringSpacing:
+  Enabled: true
+RSpec/IdenticalEqualityAssertion:
+  Enabled: true
+RSpec/SubjectDeclaration:
+  Enabled: true
+RSpec/Rails/AvoidSetupHook:
+  Enabled: true

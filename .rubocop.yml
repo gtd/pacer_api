@@ -1,6 +1,3 @@
-require:
-  - rubocop-rspec
-
 AllCops:
   TargetRubyVersion: 3.0
 
@@ -15,39 +12,6 @@ Layout/AccessModifierIndentation:
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
-Layout/LineLength:
-  Exclude:
-    - config/**/*
-    - lib/tasks/*
-    - script/rails
-
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - spec/**/*
-
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - spec/**/*
-
-Metrics/BlockLength:
-  Exclude:
-    - spec/**/*
-
-RSpec/DescribeClass:
-  Exclude:
-    - spec/integration/**/*
-
-RSpec/ExampleLength:
-  Enabled: false
-
-# Don't see a need to add the same 3 level nested prefix to every spec path.
-RSpec/FilePath:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Exclude:
-    - spec/integration/**/*
-
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
@@ -57,11 +21,6 @@ Style/AsciiComments:
 # Use Weirich style
 Style/BlockDelimiters:
   EnforcedStyle: semantic
-  Exclude:
-    - 'spec/factories/**/*'
-  IgnoredMethods:
-    - filter_sensitive_data
-    - it
 
 Style/Documentation:
   Enabled: false
@@ -88,12 +47,6 @@ Style/PercentLiteralDelimiters:
 
 Style/RegexpLiteral:
   Enabled: false
-
-# This is useful in specs where you want to check that an action has no side-
-# effects when an exception is raised.
-Style/RescueModifier:
-  Exclude:
-    - 'spec/**/*'
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
@@ -191,12 +144,4 @@ Style/SelectByRegexp:
 Style/StringChars:
   Enabled: true
 Style/SwapValues:
-  Enabled: true
-RSpec/ExcessiveDocstringSpacing:
-  Enabled: true
-RSpec/IdenticalEqualityAssertion:
-  Enabled: true
-RSpec/SubjectDeclaration:
-  Enabled: true
-RSpec/Rails/AvoidSetupHook:
   Enabled: true
