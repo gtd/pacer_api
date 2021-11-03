@@ -10,7 +10,7 @@ module Pacer
         @params = params
       end
 
-      def search(page = 1)
+      def fetch(page = 1)
         build_response(@session.post(endpoint(page), @params))
       end
 
