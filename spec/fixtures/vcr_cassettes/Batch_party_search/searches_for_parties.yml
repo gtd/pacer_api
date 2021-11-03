@@ -1,0 +1,366 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://qa-login.uscourts.gov/services/cso-auth
+    body:
+      encoding: UTF-8
+      string: '{"loginId":"<LOGIN>","password":"<PASSWORD>","redactFlag":"1"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:11:48 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '163'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - BIGipServer~PCR-748~ASHCAPE_QA-HTTPS-POOL-0=rd748o00000000000000000000ffff0ad5956co443;
+        path=/; Httponly; Secure
+    body:
+      encoding: UTF-8
+      string: '{"nextGenCSO":"Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX","loginResult":"0"}'
+  recorded_at: Tue, 02 Nov 2021 19:11:48 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/reports
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:11:49 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Content-Length:
+      - '142'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":null,"pageInfo":{"number":0,"size":54,"totalPages":0,"totalElements":0,"numberOfElements":0,"first":true,"last":true},"content":[]}'
+  recorded_at: Tue, 02 Nov 2021 19:11:49 GMT
+- request:
+    method: post
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/download
+    body:
+      encoding: UTF-8
+      string: '{"lastName":"Barnesby"}'
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:11:50 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '332'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"reportId":1314,"status":"RUNNING","startTime":null,"endTime":null,"recordCount":null,"unbilledPageCount":null,"downloadFee":null,"pages":null,"sort":{"orders":[]},"searchType":"PARTY","criteria":{"searchType":"PARTY","courtId":[],"requestType":"Batch","requestSource":"API","lastName":"Barnesby","role":[],"exactNameMatch":false}}'
+  recorded_at: Tue, 02 Nov 2021 19:11:50 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/download/status/1314
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:12:50 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '376'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"reportId":1314,"status":"COMPLETED","startTime":"2021-11-02T14:11:50.000-0500","endTime":"2021-11-02T14:11:50.000-0500","recordCount":1,"unbilledPageCount":1,"downloadFee":0.1,"pages":1,"sort":{"orders":[]},"searchType":"PARTY","criteria":{"searchType":"PARTY","courtId":[],"requestType":"Batch","requestSource":"API","lastName":"Barnesby","role":[],"exactNameMatch":false}}'
+  recorded_at: Tue, 02 Nov 2021 19:12:51 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/download/1314
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:12:51 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '690'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: "{\n    \"content\" : [{\n        \"courtId\" : \"azttdc\",\"caseId\"
+        : \"10842\",\"caseYear\" : \"2007\",\"caseNumber\" : \"327\",\"caseOffice\"
+        : \"0\",\"caseType\" : \"cv\",\"caseTitle\" : \"Barnesby v. Barnes\",\"dateFiled\"
+        : \"2007-08-27\",\"lastName\" : \"Barnesby\",\"firstName\" : \"Billy\",\"partyType\"
+        : \"pty\",\"partyRole\" : \"pla\",\"natureOfSuit\" : \"110\",\"caseLink\"
+        : \"https://ecf.tc1d.aztc.uscourts.gov/cgi-bin/iqquerymenu.pl?10842\",\"caseNumberFull\"
+        : \"0:2007cv00327\"\n      }], \n    \"receipt\": {\n    \"billablePages\":
+        1,\n    \"fee\": 0.1,\n    \"loginId\": \"<LOGIN>\",\n    \"clientCode\":
+        \"\",\n    \"firmId\": \"\",\n    \"search\": \"All Courts; Name Barnesby;
+        Batch\",\n    \"description\": \"All Court Types Party Search\",\n    \"csoId\":
+        4697705}}"
+  recorded_at: Tue, 02 Nov 2021 19:12:51 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/reports
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:12:51 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '497'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":null,"pageInfo":{"number":0,"size":54,"totalPages":1,"totalElements":1,"numberOfElements":1,"first":true,"last":true},"content":[{"reportId":1314,"status":"COMPLETED","startTime":"2021-11-02T14:11:50.000-0500","endTime":"2021-11-02T14:11:50.000-0500","recordCount":1,"unbilledPageCount":0,"downloadFee":0.0,"pages":1,"criteria":{"searchType":"PARTY","courtId":[],"requestType":"Batch","requestSource":"API","lastName":"Barnesby","role":[],"exactNameMatch":false},"sort":{"orders":[]}}]}'
+  recorded_at: Tue, 02 Nov 2021 19:12:52 GMT
+- request:
+    method: delete
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/reports/1314
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 204
+      message: '204'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:12:52 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Tue, 02 Nov 2021 19:12:52 GMT
+- request:
+    method: get
+    uri: https://qa-pcl.uscourts.gov/pcl-public-api/rest/parties/reports
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Next-Gen-Cso:
+      - Z2MjncO1Ly0HmuGLgJyJLYDwCevuU3rCI0A4ndpNca03aYUOr0OunZzZPqULOXYAVEqLndgoGuKBXRtcI0mErnNXsREFBZ5JCitPfBJ6anBAruz2G2kxVWRY1yb0S0nX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: '200'
+    headers:
+      Date:
+      - Tue, 02 Nov 2021 19:12:52 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '142'
+      X-Xss-Protection:
+      - 1; mode=block
+      Strict-Transport-Security:
+      - max-age=10886400; includeSubDomains; preload
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"receipt":null,"pageInfo":{"number":0,"size":54,"totalPages":0,"totalElements":0,"numberOfElements":0,"first":true,"last":true},"content":[]}'
+  recorded_at: Tue, 02 Nov 2021 19:12:52 GMT
+recorded_with: VCR 6.0.0
