@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require "pacer/case_info"
+require "pacer/batch/status"
 
 module Pacer
   module Batch
     class CaseSearch
+      include Batch::Status
+
       SEARCH_PATH   = "cases/download"
       STATUS_PATH   = "cases/download/status/%d"
       DOWNLOAD_PATH = "cases/download/%d"
@@ -21,26 +24,22 @@ module Pacer
         payload.fetch(:content).map { |doc| new(session, doc) }
       end
 
-      def initialize(session, status)
+      def initialize(session, report_info)
         @session = session
-        @status = status
-        @report_id = status.fetch(:report_id)
-      end
-
-      def completed?
-        @status.fetch(:status, nil) == "COMPLETED"
+        @report_info = report_info
+        @report_id = report_info.fetch(:report_id)
       end
 
       def download_fee
-        @status.fetch(:download_fee, nil)
+        @report_info.fetch(:download_fee, nil)
       end
 
       def record_count
-        @status.fetch(:record_count, nil)
+        @report_info.fetch(:record_count, nil)
       end
 
       def poll!
-        @status = @session.get(format(STATUS_PATH, @report_id))
+        @report_info = @session.get(format(STATUS_PATH, @report_id))
       end
 
       def download
@@ -55,6 +54,10 @@ module Pacer
 
       def delete
         @session.delete(format(DELETE_PATH, @report_id))
+      end
+
+      def status
+        @report_info.fetch(:status)
       end
 
       Download = Struct.new(:payload) do

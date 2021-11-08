@@ -89,36 +89,6 @@ RSpec.describe Pacer::Batch::PartySearch do
     end
   end
 
-  describe "completed?" do
-    it "is initially false" do
-      expect(search).not_to be_completed
-    end
-
-    it "is false after polling a still-running job" do
-      response_doc = {
-        report_id: 1078,
-        status: "RUNNING"
-      }
-      allow(session).to receive(:get).and_return(response_doc)
-
-      search.poll!
-
-      expect(search).not_to be_completed
-    end
-
-    it "is true after polling a completed job" do
-      response_doc = {
-        report_id: 1078,
-        status: "COMPLETED"
-      }
-      allow(session).to receive(:get).and_return(response_doc)
-
-      search.poll!
-
-      expect(search).to be_completed
-    end
-  end
-
   describe "poll!" do
     it "requests a new batch job status" do
       response_doc = {
@@ -130,6 +100,79 @@ RSpec.describe Pacer::Batch::PartySearch do
       search.poll!
 
       expect(session).to have_received(:get).with("parties/download/status/1078")
+    end
+  end
+
+  describe "status" do
+    before do
+      allow(session).to receive(:get).and_return(status_doc)
+    end
+
+    context "when just created" do
+      it { is_expected.to be_running }
+      it { is_expected.not_to be_completed }
+      it { is_expected.not_to be_failed }
+      it { is_expected.not_to be_waiting }
+    end
+
+    context "when the job is running" do
+      let(:status_doc) {
+        { report_id: 1078, status: "RUNNING" }
+      }
+
+      before do
+        search.poll!
+      end
+
+      it { is_expected.to     be_running }
+      it { is_expected.not_to be_completed }
+      it { is_expected.not_to be_failed }
+      it { is_expected.not_to be_waiting }
+    end
+
+    context "when the job is waiting" do
+      let(:status_doc) {
+        { report_id: 1078, status: "WAITING" }
+      }
+
+      before do
+        search.poll!
+      end
+
+      it { is_expected.not_to be_running }
+      it { is_expected.not_to be_completed }
+      it { is_expected.not_to be_failed }
+      it { is_expected.to     be_waiting }
+    end
+
+    context "when the job has failed" do
+      let(:status_doc) {
+        { report_id: 1078, status: "FAILED" }
+      }
+
+      before do
+        search.poll!
+      end
+
+      it { is_expected.not_to be_running }
+      it { is_expected.not_to be_completed }
+      it { is_expected.to     be_failed }
+      it { is_expected.not_to be_waiting }
+    end
+
+    context "when the job has completed" do
+      let(:status_doc) {
+        { report_id: 1078, status: "COMPLETED" }
+      }
+
+      before do
+        search.poll!
+      end
+
+      it { is_expected.not_to be_running }
+      it { is_expected.to     be_completed }
+      it { is_expected.not_to be_failed }
+      it { is_expected.not_to be_waiting }
     end
   end
 
