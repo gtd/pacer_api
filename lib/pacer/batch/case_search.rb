@@ -31,6 +31,14 @@ module Pacer
         @status.fetch(:status, nil) == "COMPLETED"
       end
 
+      def download_fee
+        @status.fetch(:download_fee, nil)
+      end
+
+      def record_count
+        @status.fetch(:record_count, nil)
+      end
+
       def poll!
         @status = @session.get(format(STATUS_PATH, @report_id))
       end

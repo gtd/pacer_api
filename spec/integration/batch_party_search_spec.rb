@@ -18,6 +18,8 @@ RSpec.describe "Batch party search" do
     search.poll!
 
     expect(search).to be_completed
+    expect(search.record_count).to eq(1)
+    expect(search.download_fee).to be_within(0.001).of(0.1)
 
     download = search.download
 

@@ -133,6 +133,34 @@ RSpec.describe Pacer::Batch::PartySearch do
     end
   end
 
+  describe "download_fee" do
+    it "returns the cost" do
+      response_doc = {
+        report_id: 1078,
+        status: "COMPLETED",
+        download_fee: 0.1
+      }
+      allow(session).to receive(:get).and_return(response_doc)
+      search.poll!
+
+      expect(search.download_fee).to be_within(0.001).of(0.1)
+    end
+  end
+
+  describe "record_count" do
+    it "returns the cost" do
+      response_doc = {
+        report_id: 1078,
+        status: "COMPLETED",
+        record_count: 14
+      }
+      allow(session).to receive(:get).and_return(response_doc)
+      search.poll!
+
+      expect(search.record_count).to eq(14)
+    end
+  end
+
   describe "download" do
     let(:response_doc) {
       {
