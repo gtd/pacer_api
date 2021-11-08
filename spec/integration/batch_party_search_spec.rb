@@ -37,4 +37,22 @@ RSpec.describe "Batch party search" do
       case_title: "Barnesby v. Barnes"
     )
   end
+
+  it "downloads XML", :vcr do
+    session = Pacer::Authenticator.new(
+      PACER_LOGIN, PACER_PASSWORD, environment: :qa
+    ).authenticate
+
+    search = Pacer::Batch::PartySearch.create(session, last_name: "Barnesby")
+
+    # sleep 60 # if regenerating this with blank VCR
+
+    search.poll!
+
+    expect(search).to be_completed
+
+    xml = search.download_xml
+
+    expect(xml).to match(%r{\A<\?xml version="1\.0" encoding="UTF-8"\?>})
+  end
 end

@@ -47,6 +47,12 @@ module Pacer
         Download.new(@session.get(format(DOWNLOAD_PATH, @report_id)))
       end
 
+      def download_xml
+        @session.request(:get, format(DOWNLOAD_PATH, @report_id)) { |req|
+          req.headers["Accept"] = "application/xml"
+        }.body
+      end
+
       def delete
         @session.delete(format(DELETE_PATH, @report_id))
       end

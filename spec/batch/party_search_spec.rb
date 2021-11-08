@@ -226,6 +226,35 @@ RSpec.describe Pacer::Batch::PartySearch do
     end
   end
 
+  describe "download_xml" do
+    let(:response) { instance_double(Faraday::Response) }
+    let(:response_body) {
+      <<~XML
+        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        <thing />
+      XML
+    }
+
+    before do
+      allow(response).to receive(:body)
+        .and_return(response_body)
+      allow(session).to receive(:request)
+        .and_return(response)
+    end
+
+    it "fetches the report" do
+      search.download_xml
+
+      expect(session).to have_received(:request)
+        .with(:get, "parties/download/1078")
+    end
+
+    it "returns raw XML" do
+      result = search.download_xml
+      expect(result).to eq(response_body)
+    end
+  end
+
   describe "delete" do
     before do
       allow(session).to receive(:delete)

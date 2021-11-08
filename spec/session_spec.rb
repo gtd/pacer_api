@@ -46,7 +46,6 @@ RSpec.describe Pacer::Session do
           :get, "https://qa-pcl.uscourts.gov/pcl-public-api/rest/fragment"
         )
         .with(headers: {
-          "Content-Type" => "application/json",
           "Accept" => "application/json",
           "X-NEXT-GEN-CSO" => token
         })
@@ -97,7 +96,6 @@ RSpec.describe Pacer::Session do
           :delete, "https://qa-pcl.uscourts.gov/pcl-public-api/rest/fragment"
         )
         .with(headers: {
-          "Content-Type" => "application/json",
           "Accept" => "application/json",
           "X-NEXT-GEN-CSO" => token
         })
@@ -113,6 +111,19 @@ RSpec.describe Pacer::Session do
       stub_request(:delete, %r{\Ahttps://qa-pcl.uscourts.gov/})
         .to_return(status: 500)
       expect(session.delete("path")).to be false
+    end
+  end
+
+  describe "request" do
+    it "performs an arbitrary request" do
+      session.request(:get, "fragment") do |req|
+        req.headers["Accept"] = "application/xml"
+      end
+      expect(WebMock)
+        .to have_requested(
+          :get, "https://qa-pcl.uscourts.gov/pcl-public-api/rest/fragment"
+        )
+        .with(headers: { "Accept" => "application/xml" })
     end
   end
 end

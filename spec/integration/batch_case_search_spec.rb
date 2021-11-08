@@ -35,4 +35,22 @@ RSpec.describe "Batch case search" do
       case_title: "Barnes Hospital v. Curtis C. Crawford, et al"
     )
   end
+
+  it "downloads XML", :vcr do
+    session = Pacer::Authenticator.new(
+      PACER_LOGIN, PACER_PASSWORD, environment: :qa
+    ).authenticate
+
+    search = Pacer::Batch::CaseSearch.create(session, case_title: "Barnes")
+
+    # sleep 5 # if regenerating this with blank VCR
+
+    search.poll!
+
+    expect(search).to be_completed
+
+    xml = search.download_xml
+
+    expect(xml).to match(%r{\A<\?xml version="1\.0" encoding="UTF-8"\?>})
+  end
 end

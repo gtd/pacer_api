@@ -29,7 +29,10 @@ module Pacer
     end
 
     def post(path, doc)
-      res = request(:post, path) { |req| req.body = encode_request(doc) }
+      res = request(:post, path) { |req|
+        req.headers["Content-Type"] = "application/json"
+        req.body = encode_request(doc)
+      }
       decode_response(res.body)
     end
 
@@ -38,11 +41,8 @@ module Pacer
       res.status == 204
     end
 
-  private
-
     def request(verb, path, &blk)
       res = Faraday.public_send(verb, @uri.merge(path)) { |req|
-        req.headers["Content-Type"] = "application/json"
         req.headers["Accept"] = "application/json"
         req.headers["X-NEXT-GEN-CSO"] = @token
         blk.call(req) if block_given?
@@ -50,6 +50,8 @@ module Pacer
       update_token! res.headers
       res
     end
+
+  private
 
     def update_token!(headers)
       new_token = headers["X-NEXT-GEN-CSO"]
