@@ -16,7 +16,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - pacer-{{ checksum "Gemfile.lock" }}
+            - pacer-{{ checksum "pacer.gemspec" }}
             - pacer-
 
       - run:
