@@ -8,3 +8,4 @@
 /tmp/
 /spec/examples.txt
 Gemfile.lock
+*.gem
