@@ -16,7 +16,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - pacer-{{ checksum "pacer.gemspec" }}
+            - pacer-{{ checksum "pacer_api.gemspec" }}
             - pacer-
 
       - run:

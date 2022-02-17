@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative "lib/pacer/version"
+require_relative "lib/pacer_api/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "pacer"
-  spec.version       = Pacer::VERSION
+  spec.name          = "pacer_api"
+  spec.version       = PacerApi::VERSION
   spec.authors       = ["Paul Battley"]
   spec.email         = ["pbattley@gmail.com"]
 
   spec.summary       = "PACER Case Locator API"
   spec.description   = "Interface to the PACER Case Locator API"
-  spec.homepage      = "https://github.com/busbk/pacer-api"
+  spec.homepage      = "https://github.com/gtd/pacer_api"
   spec.required_ruby_version = ">= 2.4.0"
 
   spec.metadata["homepage_uri"] = spec.homepage

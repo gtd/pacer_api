@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "pacer/immediate/paginated_response"
-require "pacer/case_info"
+require "pacer_api/immediate/paginated_response"
+require "pacer_api/case_info"
 
-module Pacer
+module PacerApi
   module Immediate
     class CaseSearch
       PATH = "cases/find?page=%d"

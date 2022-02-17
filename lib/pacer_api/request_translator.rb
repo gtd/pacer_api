@@ -2,7 +2,7 @@
 
 require "active_support/inflector"
 
-module Pacer
+module PacerApi
   class RequestTranslator
     def self.translate(obj)
       new.translate(obj)

@@ -2,12 +2,12 @@
 
 require "ostruct"
 
-require "pacer/case_info"
+require "pacer_api/case_info"
 
-module Pacer
+module PacerApi
   PartyInfo = Class.new(OpenStruct) do
     def court_case
-      @court_case ||= Pacer::CaseInfo.new(self[:court_case])
+      @court_case ||= PacerApi::CaseInfo.new(self[:court_case])
     end
   end
 end

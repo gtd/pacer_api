@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "pacer/immediate/paginated_response"
-require "pacer/party_info"
+require "pacer_api/immediate/paginated_response"
+require "pacer_api/party_info"
 
-module Pacer
+module PacerApi
   module Immediate
     class PartySearch
       PATH = "parties/find?page=%d"

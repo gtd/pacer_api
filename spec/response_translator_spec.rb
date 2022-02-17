@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "pacer/response_translator"
+require "pacer_api/response_translator"
 
-RSpec.describe Pacer::ResponseTranslator do
+RSpec.describe PacerApi::ResponseTranslator do
   subject(:translator) { described_class }
 
   it "translates case of key" do

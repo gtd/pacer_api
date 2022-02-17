@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "pacer/session"
+require "pacer_api/session"
 
-RSpec.describe Pacer::Session do
+RSpec.describe PacerApi::Session do
   subject(:session) { described_class.new(token, environment: :qa) }
 
   let(:token) { "TOKEN123" }

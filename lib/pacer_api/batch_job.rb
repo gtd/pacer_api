@@ -2,7 +2,7 @@
 
 require "ostruct"
 
-module Pacer
+module PacerApi
   BatchJob = Class.new(OpenStruct) do
     def running?
       status == "RUNNING"

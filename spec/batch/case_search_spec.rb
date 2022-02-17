@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "pacer/authenticator"
-require "pacer/batch/case_search"
+require "pacer_api/authenticator"
+require "pacer_api/batch/case_search"
 
-RSpec.describe Pacer::Batch::CaseSearch do
+RSpec.describe PacerApi::Batch::CaseSearch do
   subject(:search) { described_class.new(session, status_doc) }
 
-  let(:session) { instance_double(Pacer::Session) }
+  let(:session) { instance_double(PacerApi::Session) }
   let(:status_doc) {
     {
       report_id: 1078,

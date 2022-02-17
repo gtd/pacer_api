@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Pacer
+module PacerApi
   module Immediate
     PaginatedResponse = Struct.new(:payload) do
       def page

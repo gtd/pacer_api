@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require "pacer/authenticator"
-require "pacer/batch/case_search"
+require "pacer_api/authenticator"
+require "pacer_api/batch/case_search"
 
 RSpec.describe "Batch case search" do
   it "searches for cases", :vcr do
-    session = Pacer::Authenticator.new(
+    session = PacerApi::Authenticator.new(
       PACER_LOGIN, PACER_PASSWORD, environment: :qa
     ).authenticate
 
-    search = Pacer::Batch::CaseSearch.create(session, case_title: "Barnes")
+    search = PacerApi::Batch::CaseSearch.create(session, case_title: "Barnes")
 
     # sleep 5 # if regenerating this with blank VCR
 
@@ -21,9 +21,9 @@ RSpec.describe "Batch case search" do
 
     download = search.download
 
-    Pacer::Batch::CaseSearch.all(session).each(&:delete)
+    PacerApi::Batch::CaseSearch.all(session).each(&:delete)
 
-    expect(Pacer::Batch::CaseSearch.all(session)).to eq([])
+    expect(PacerApi::Batch::CaseSearch.all(session)).to eq([])
 
     expect(download.cases.length).to eq(14)
 
@@ -37,11 +37,11 @@ RSpec.describe "Batch case search" do
   end
 
   it "downloads XML", :vcr do
-    session = Pacer::Authenticator.new(
+    session = PacerApi::Authenticator.new(
       PACER_LOGIN, PACER_PASSWORD, environment: :qa
     ).authenticate
 
-    search = Pacer::Batch::CaseSearch.create(session, case_title: "Barnes")
+    search = PacerApi::Batch::CaseSearch.create(session, case_title: "Barnes")
 
     # sleep 5 # if regenerating this with blank VCR
 

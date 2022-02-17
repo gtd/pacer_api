@@ -2,6 +2,6 @@
 
 require "ostruct"
 
-module Pacer
+module PacerApi
   CaseInfo = Class.new(OpenStruct)
 end

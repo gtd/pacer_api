@@ -2,11 +2,11 @@
 
 require "faraday"
 
-require "pacer/translation"
+require "pacer_api/translation"
 
-module Pacer
+module PacerApi
   class Session
-    include Pacer::Translation
+    include PacerApi::Translation
 
     HOSTS = {
       production: "pcl.uscourts.gov",

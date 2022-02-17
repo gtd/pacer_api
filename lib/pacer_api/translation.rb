@@ -3,10 +3,10 @@
 require "json"
 require "pp" if ENV.key?("DEBUG")
 
-require "pacer/request_translator"
-require "pacer/response_translator"
+require "pacer_api/request_translator"
+require "pacer_api/response_translator"
 
-module Pacer
+module PacerApi
   module Translation
     def encode_request(obj)
       if ENV.key?("DEBUG")

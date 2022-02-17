@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "pacer/party_info"
-require "pacer/batch/status"
+require "pacer_api/party_info"
+require "pacer_api/batch/status"
 
-module Pacer
+module PacerApi
   module Batch
     class PartySearch
       include Batch::Status

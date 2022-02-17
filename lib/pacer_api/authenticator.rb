@@ -3,10 +3,10 @@
 require "faraday"
 require "json"
 
-require "pacer"
-require "pacer/session"
+require "pacer_api"
+require "pacer_api/session"
 
-module Pacer
+module PacerApi
   class Authenticator
     HOSTS = {
       production: "pacer.login.uscourts.gov",

@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require "pacer/authenticator"
-require "pacer/immediate/party_search"
+require "pacer_api/authenticator"
+require "pacer_api/immediate/party_search"
 
 RSpec.describe "Immediate party search" do
   it "searches for parties", :vcr do
-    session = Pacer::Authenticator.new(
+    session = PacerApi::Authenticator.new(
       PACER_LOGIN, PACER_PASSWORD, environment: :qa
     ).authenticate
 
-    search = Pacer::Immediate::PartySearch.new(session, last_name: "Smith")
+    search = PacerApi::Immediate::PartySearch.new(session, last_name: "Smith")
 
     page = search.fetch(1)
 

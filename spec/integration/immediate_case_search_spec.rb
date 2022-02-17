@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require "pacer/authenticator"
-require "pacer/immediate/case_search"
+require "pacer_api/authenticator"
+require "pacer_api/immediate/case_search"
 
 RSpec.describe "Immediate case search" do
   it "searches for cases", :vcr do
-    session = Pacer::Authenticator.new(
+    session = PacerApi::Authenticator.new(
       PACER_LOGIN, PACER_PASSWORD, environment: :qa
     ).authenticate
 
-    search = Pacer::Immediate::CaseSearch.new(session, case_title: "THE")
+    search = PacerApi::Immediate::CaseSearch.new(session, case_title: "THE")
 
     page = search.fetch(1)
 

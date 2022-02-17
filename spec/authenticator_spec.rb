@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "pacer/authenticator"
+require "pacer_api/authenticator"
 
-RSpec.describe Pacer::Authenticator do
+RSpec.describe PacerApi::Authenticator do
   subject(:authenticator) {
     described_class.new("kodos2024", "Passw0rd", environment: :qa)
   }
@@ -48,7 +48,7 @@ RSpec.describe Pacer::Authenticator do
 
       it "raises an exception with the error description" do
         expect { authenticator.authenticate }
-          .to raise_exception(Pacer::AuthenticationError)
+          .to raise_exception(PacerApi::AuthenticationError)
           .with_message("Login Failed")
       end
     end
@@ -57,15 +57,15 @@ RSpec.describe Pacer::Authenticator do
       let(:response_body) { '{"nextGenCSO":"CSOTOKEN","loginResult":"0"}' }
 
       it "returns a session object" do
-        expect(authenticator.authenticate).to be_kind_of(Pacer::Session)
+        expect(authenticator.authenticate).to be_kind_of(PacerApi::Session)
       end
 
       it "initializes the session object with the token and environment" do
-        allow(Pacer::Session).to receive(:new)
+        allow(PacerApi::Session).to receive(:new)
 
         authenticator.authenticate
 
-        expect(Pacer::Session)
+        expect(PacerApi::Session)
           .to have_received(:new)
           .with("CSOTOKEN", environment: :qa)
       end

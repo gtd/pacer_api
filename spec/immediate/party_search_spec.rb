@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "pacer/authenticator"
-require "pacer/immediate/party_search"
+require "pacer_api/authenticator"
+require "pacer_api/immediate/party_search"
 
-RSpec.describe Pacer::Immediate::PartySearch do
+RSpec.describe PacerApi::Immediate::PartySearch do
   subject(:search) { described_class.new(session, search_params) }
 
-  let(:session) { instance_double(Pacer::Session) }
+  let(:session) { instance_double(PacerApi::Session) }
   let(:search_params) { { case_title: "Slartibartfast" } }
   let(:response_document) { {} }
 

@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require "pacer/authenticator"
-require "pacer/batch/party_search"
+require "pacer_api/authenticator"
+require "pacer_api/batch/party_search"
 
 RSpec.describe "Batch party search" do
   it "searches for parties", :vcr do
-    session = Pacer::Authenticator.new(
+    session = PacerApi::Authenticator.new(
       PACER_LOGIN, PACER_PASSWORD, environment: :qa
     ).authenticate
 
-    Pacer::Batch::PartySearch.all(session).each(&:delete)
+    PacerApi::Batch::PartySearch.all(session).each(&:delete)
 
-    search = Pacer::Batch::PartySearch.create(session, last_name: "Barnesby")
+    search = PacerApi::Batch::PartySearch.create(session, last_name: "Barnesby")
 
     # sleep 60 # if regenerating this with blank VCR
 
@@ -23,9 +23,9 @@ RSpec.describe "Batch party search" do
 
     download = search.download
 
-    Pacer::Batch::PartySearch.all(session).each(&:delete)
+    PacerApi::Batch::PartySearch.all(session).each(&:delete)
 
-    expect(Pacer::Batch::PartySearch.all(session)).to eq([])
+    expect(PacerApi::Batch::PartySearch.all(session)).to eq([])
 
     expect(download.parties.length).to eq(1)
 
@@ -39,11 +39,11 @@ RSpec.describe "Batch party search" do
   end
 
   it "downloads XML", :vcr do
-    session = Pacer::Authenticator.new(
+    session = PacerApi::Authenticator.new(
       PACER_LOGIN, PACER_PASSWORD, environment: :qa
     ).authenticate
 
-    search = Pacer::Batch::PartySearch.create(session, last_name: "Barnesby")
+    search = PacerApi::Batch::PartySearch.create(session, last_name: "Barnesby")
 
     # sleep 60 # if regenerating this with blank VCR
 
