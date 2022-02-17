@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = PacerApi::VERSION
   spec.authors       = ["Paul Battley"]
   spec.email         = ["pbattley@gmail.com"]
+  spec.license       = "MIT"
 
   spec.summary       = "PACER Case Locator API"
   spec.description   = "Interface to the PACER Case Locator API"
