@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "time"
 require "active_support/inflector"
 
 module PacerApi
