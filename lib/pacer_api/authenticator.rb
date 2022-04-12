@@ -3,7 +3,7 @@
 require "faraday"
 require "json"
 
-require "pacer_api"
+require "pacer_api/error"
 require "pacer_api/session"
 
 module PacerApi

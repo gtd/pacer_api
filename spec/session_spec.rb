@@ -57,6 +57,22 @@ RSpec.describe PacerApi::Session do
       response = session.get("path")
       expect(response).to eq(a_key: "value")
     end
+
+    context "when JSON parsing fails" do
+      before do
+        stub_request(:get, %r{\Ahttps://qa-pcl.uscourts.gov/})
+          .to_return(body: "<!DOCTYPE html>")
+      end
+
+      it "raises an exception with useful context" do
+        expect {
+          session.get("path")
+        }.to raise_exception(
+          PacerApi::ResponseError,
+          %r{GET path}
+        )
+      end
+    end
   end
 
   describe "post" do
@@ -85,6 +101,22 @@ RSpec.describe PacerApi::Session do
         .to_return(body: '{"aKey": "value"}')
       response = session.post("path", {})
       expect(response).to eq(a_key: "value")
+    end
+
+    context "when JSON parsing fails" do
+      before do
+        stub_request(:post, %r{\Ahttps://qa-pcl.uscourts.gov/})
+          .to_return(body: "<!DOCTYPE html>")
+      end
+
+      it "raises an exception with useful context" do
+        expect {
+          session.post("path", { "key" => "value" })
+        }.to raise_exception(
+          PacerApi::ResponseError,
+          %r[POST path with {"key"=>"value"}]
+        )
+      end
     end
   end
 

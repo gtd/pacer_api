@@ -2,6 +2,7 @@
 
 require "faraday"
 
+require "pacer_api/error"
 require "pacer_api/translation"
 
 module PacerApi
@@ -26,6 +27,9 @@ module PacerApi
     def get(path)
       res = request(:get, path)
       decode_response(res.body)
+    rescue PacerApi::Error => e
+      raise ResponseError,
+        "Error in GET #{path}: #{e.message}", e.backtrace
     end
 
     def post(path, doc)
@@ -34,6 +38,10 @@ module PacerApi
         req.body = encode_request(doc)
       }
       decode_response(res.body)
+    rescue PacerApi::Error => e
+      raise ResponseError,
+        "Error in POST #{path} with #{doc.inspect}: #{e.message}",
+        e.backtrace
     end
 
     def delete(path)
