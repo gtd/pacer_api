@@ -13,7 +13,7 @@ module PacerApi
         @params = params
       end
 
-      def fetch(page = 1)
+      def fetch(page = 0)
         path = format(PATH, page)
         payload = @session.post(path, @params)
         Page.new(payload)

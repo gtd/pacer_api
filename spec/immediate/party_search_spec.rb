@@ -15,11 +15,11 @@ RSpec.describe PacerApi::Immediate::PartySearch do
       allow(session).to receive(:post).and_return(response_document)
     end
 
-    it "requests the first page by default" do
+    it "requests page 0 by default" do
       search.fetch
 
       expect(session).to have_received(:post)
-        .with("parties/find?page=1", search_params)
+        .with("parties/find?page=0", search_params)
     end
 
     it "requests the specified page" do
