@@ -147,6 +147,39 @@ RSpec.describe PacerApi::Immediate::CaseSearch do
           case_number_full: "0:2003bap06062"
         )
       end
+
+      it "has no errors" do
+        expect(page.errors).to be_empty
+      end
+    end
+
+    context "when the response is an error" do
+      subject(:page) { search.fetch }
+
+      let(:response_document) {
+        {
+          error: [{
+            field: "",
+            messages: [
+              "Case Title cross validation",
+              "Wildcard character not allowed in first character of search value."
+            ]
+          }]
+        }
+      }
+
+      it "has no cases" do
+        expect(page.cases).to be_empty
+      end
+
+      it "exposes error messages" do
+        expect(page.errors).to eq(
+          [
+            "Case Title cross validation",
+            "Wildcard character not allowed in first character of search value."
+          ]
+        )
+      end
     end
   end
 end

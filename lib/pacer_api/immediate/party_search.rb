@@ -21,7 +21,12 @@ module PacerApi
 
       class Page < PaginatedResponse
         def parties
-          payload.fetch(:content).map { |h| PartyInfo.new(h) }
+          @parties ||=
+            if payload.key?(:content)
+              payload.fetch(:content).map { |h| PartyInfo.new(h) }
+            else
+              []
+            end
         end
       end
     end

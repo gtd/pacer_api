@@ -182,6 +182,39 @@ RSpec.describe PacerApi::Immediate::PartySearch do
           case_number_full: "1:2005cv01234"
         )
       end
+
+      it "has no errors" do
+        expect(page.errors).to be_empty
+      end
+    end
+
+    context "when the response is an error" do
+      subject(:page) { search.fetch }
+
+      let(:response_document) {
+        {
+          error: [{
+            field: "",
+            messages: [
+              "Party Name cross validation",
+              "Wildcard character not allowed in first character of search value."
+            ]
+          }]
+        }
+      }
+
+      it "has no parties" do
+        expect(page.parties).to be_empty
+      end
+
+      it "exposes error messages" do
+        expect(page.errors).to eq(
+          [
+            "Party Name cross validation",
+            "Wildcard character not allowed in first character of search value."
+          ]
+        )
+      end
     end
   end
 end

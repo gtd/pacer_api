@@ -19,6 +19,14 @@ module PacerApi
         page_info(:last)
       end
 
+      def errors
+        if payload.key?(:error)
+          payload.fetch(:error).map { |e| e.fetch(:messages) }.flatten
+        else
+          []
+        end
+      end
+
     private
 
       def page_info(key)
